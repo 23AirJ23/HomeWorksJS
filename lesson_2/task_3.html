@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 3</title>
+</head>
+
+<body>
+   <script>
+      let price = parseFloat(prompt(`Введіть ціну товару`, `0`))
+      let quantity = parseFloat(prompt(`Введіть кількість товару`, ``))
+      let generalPrice = price * quantity
+      let tax = generalPrice * 0.05
+
+
+      document.write(`<div>Загальна вартість: ${generalPrice.toFixed(2)} грн.</div><div>З пдв: ${generalPrice + tax} грн.</div>`)
+   </script>
+</body>
+
+</html>

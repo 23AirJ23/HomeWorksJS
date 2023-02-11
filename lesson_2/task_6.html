@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 6</title>
+</head>
+
+<body>
+   <script>
+      let firstProductQuantity = parseInt(prompt(`Введіть кількість першого товару`, `шт.`))
+      let firstProductPrice = parseFloat(prompt(`Введіть ціну першого товару`, `грн.`))
+      let secondProductQuantity = parseInt(prompt(`Введіть кількість другого товару`, `шт.`))
+      let secondProductPrice = parseFloat(prompt(`Введіть ціну другого товару`, `грн.`))
+      let thirdProductQuantity = parseInt(prompt(`Введіть кількість третього товару`, `шт.`))
+      let thirdProductPrice = parseFloat(prompt(`Введіть ціну третього товару`, `грн.`))
+      let firstCommonPrice = firstProductQuantity * firstProductPrice
+      let secondCommonPrice = secondProductQuantity * secondProductPrice
+      let thirdCommonPrice = thirdProductQuantity * thirdProductPrice
+
+      document.write(`
+      <div style="display: grid; grid-template-columns: repeat(4, 100px); row-gap: 10px;">
+      <span>№</span><span>Кількість</span><span>Ціна</span><span>Загальна ціна</span>
+      <span>1</span><span>${firstProductQuantity}</span><span>${firstProductPrice}</span><span>${firstCommonPrice}</span>
+      <span>2</span><span>${secondProductQuantity}</span><span>${secondProductPrice}</span><span>${secondCommonPrice}</span>
+      <span>3</span><span>${thirdProductQuantity}</span><span>${thirdProductPrice}</span><span>${thirdCommonPrice}</span>
+      <span style="grid-column: span 3;">До сплати:</span><span>${firstCommonPrice + secondCommonPrice + thirdCommonPrice}</span>
+   </div>
+      `)
+   </script>
+</body>
+
+</html>
