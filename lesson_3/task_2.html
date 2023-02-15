@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 2</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px;">З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то
+      відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.</h1>
+
+   <script>
+      let productPrice = parseFloat(prompt(`Введіть ціну товара`, ``))
+      let summOfMoney = parseFloat(prompt(`Введіть кількість грошей`, ``))
+      const lotteryTicketPrice = 4
+      let balanceMinusTicket = summOfMoney - productPrice - lotteryTicketPrice
+      let balanceWithoutTicket = summOfMoney - productPrice
+
+      if (summOfMoney < productPrice)
+         document.write(`Не достатньо грошей для купівлі. Перевірте баланс.`)
+      else if ((summOfMoney - productPrice) >= lotteryTicketPrice) {
+         if (confirm(`Купите додатково лотерейний квиток?`))
+            document.write(`Товар та лотерейний квиток куплено.  Дякуємо! Ваш залишок: ${balanceMinusTicket}`)
+         else
+            document.write(`Шкода. Дякуємо за покупку. Ваш залишок: ${balanceWithoutTicket}`)
+      }
+      else
+         document.write(`Успішна операція! Ваш залишок: ${balanceWithoutTicket}`)
+   </script>
+</body>
+
+</html>
