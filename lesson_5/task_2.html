@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Task 2</title>
+  </head>
+  <body>
+    <h1 style="font-size: 25px">
+      Задача 2. Створити 10 елементів для введення цін продуктів.
+    </h1>
+    <script>
+      document.write(
+        `<div style="display:flex; gap: 10px; flex-direction:column">`
+      )
+      for (let i = 1; i <= 10; i++) {
+        let userPrice = parseFloat(prompt(`Введіть ціну продукту ${i}:`))
+        if (!isFinite(userPrice)) continue
+        document.write(`
+        <div style="display:flex; gap: 15px;">
+            <span>Product #${i}</span>
+            <span style="border:1px solid #000; min-width:150px; text-align:center;">${userPrice}</span>
+        </div>
+         `)
+      }
+      document.write(`</div>`)
+    </script>
+  </body>
+</html>

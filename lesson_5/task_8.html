@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 8</title>
+</head>
+
+<body>
+  <h1 style="font-size: 25px">
+    Задача 8. Користувач загадує число. За 3 спроби комп’ютер намагається
+    вгадати число користувача (використати confirm).
+  </h1>
+
+  <script>
+    let userNumber = parseInt(prompt(`Загадайте адекватне число:`))
+    let computerAttempts = 3
+    let result
+    if (!isFinite(userNumber))
+      userNumber = parseInt(prompt(`Я ж просив адекватне. Спробуйте ще раз`))
+    do {
+      const randomNumber = Math.floor(Math.random() * 100) + 1
+      let confirmNumber = confirm(`Ваше число ${randomNumber}?`)
+      if (confirmNumber && randomNumber == userNumber) {
+        result = `Перемога за мною!`
+        break
+      } else if (!confirmNumber && randomNumber == userNumber) {
+        result = `Помилився, або дуриш? Я вгадав)`
+        break
+      } else if (confirmNumber) {
+        alert(`Не обманюй. Я все бачу...`)
+        continue
+      } else {
+        computerAttempts--
+        if (!computerAttempts)
+          result = `Нажаль, спроби закінчились. Пощастить наступного разу`
+      }
+    } while (computerAttempts > 0)
+    document.write(result)
+  </script>
+</body>
+
+</html>

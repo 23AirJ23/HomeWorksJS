@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 14</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 14. Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей
+      до тих пір, поки суми не буде достатньо для оплати товарів (кожного разу користувачу повідомляють, яку ще суму
+      потрібно ввести).
+   </h1>
+
+   <script>
+      let remnantSumm = Math.floor(Math.random() * 1000) + 1
+      const fullCalculation = 0
+      let difference, result
+
+      while (remnantSumm >= fullCalculation) {
+         let userPayment = parseInt(prompt(`Вам залишилось сплатити ${remnantSumm} грн. Без дрібних, якщо можна:`))
+         if (userPayment > remnantSumm) {
+            difference = userPayment - remnantSumm
+            result = `Ви дали трохи більше. Заберіть різницю. Ваших ${difference} грн. Дякую`
+            break
+         } else if (userPayment == remnantSumm) {
+            result = `Супер, якраз стало! Приходьте ще)`
+            break
+         } else {
+            remnantSumm -= userPayment
+         }
+      }
+      document.write(result)
+   </script>
+</body>
+
+</html>

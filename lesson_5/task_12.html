@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 12</title>
+</head>
+
+<body>
+  <h1 style="font-size: 25px">
+    Задача 12. Ігровий автомат. Випадково вибираємо зображення у 3 позиціях.
+    Вибір у кожній позиції вибирається як одне з чотирьох зображень. Вивести
+    ці зображення і повідомити виграш користувача (три перших зображення 100
+    грн, три других – 200, три третіх – 500, три четвертих зображення –
+    1000грн). Використати цикли і switch (для вибору зображення за номером).
+  </h1>
+
+  <script>
+    let firstSlot = Math.floor(Math.random() * 4) + 1
+    let secondSlot = Math.floor(Math.random() * 4) + 1
+    let thirdSlot = Math.floor(Math.random() * 4) + 1
+
+    document.write(`<div
+      style="
+        display: inline-grid;
+      grid-template-columns: repeat(3, 200px); padding: 5px; border: 1px solid #000; gap: 5px;">`)
+    for (let i = 0; i < 3; i++) {
+      let pictureNumber
+      switch (i) {
+        case 0:
+          pictureNumber = firstSlot
+          break
+        case 1:
+          pictureNumber = secondSlot
+          break
+        case 2:
+          pictureNumber = thirdSlot
+      }
+      document.write(`
+        <div style="width: 200px; height:200px; border: 1px solid #000;">
+      <img style="max-width: 100%; object-fit:contain;" src="img/${pictureNumber}.jpg"
+        alt="" />
+        </div>
+        `)
+    }
+    document.write(`</div>`)
+    document.write(`<div>`)
+    let result
+    if (firstSlot == secondSlot && firstSlot == thirdSlot) {
+      switch (firstSlot) {
+        case 1: result = `Вітаю. Ви виграли 100 грн.`
+          break
+        case 2: result = `Вітаю. Ви виграли 200 грн.`
+          break
+        case 3: result = `Вітаю. Ви виграли 500 грн.`
+          break
+        case 4: result = `Вітаю. Ви виграли 1000 грн.`
+          break
+      }
+    } else result = `Нажаль. Пощастить наступного разу`
+    document.write(result)
+    document.write(`<div>`)
+
+  </script>
+</body>
+
+</html>

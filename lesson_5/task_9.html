@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Task 9</title>
+  </head>
+  <body>
+    <h1 style="font-size: 25px">
+      Задача 9. Користувач загадує число. Комп’ютер задає питання поки не вгадає
+      число користувача (використати confirm).
+    </h1>
+
+    <script>
+      let userNumber = parseInt(prompt(`Загадайте число від 1 до 100:`))
+      let computerAttempts = 100
+      if (!isFinite(userNumber))
+        userNumber = parseInt(prompt(`Помилка. Спробуй ще раз:`))
+      do {
+        const randomNumber = Math.floor(Math.random() * 100) + 1
+        let computerQuestion = confirm(`Ваше число ${randomNumber}?`)
+        if (computerQuestion && randomNumber == userNumber) {
+          document.write(`Перемога за мною`)
+          break
+        } else if (computerQuestion) {
+          alert(
+            `Знаю, що набридло. Але не треба брехати. Залишилось ${computerAttempts} спроб.`
+          )
+          continue
+        } else if (!computerQuestion && randomNumber == userNumber) {
+          document.write(`Помилився, або дуриш? Я вгадав)`)
+          break
+        } else {
+          computerAttempts--
+          continue
+        }
+      } while (computerAttempts > 0)
+    </script>
+  </body>
+</html>

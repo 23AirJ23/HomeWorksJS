@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Task 4</title>
+  </head>
+  <body>
+    <h1 style="font-size: 25px">
+      Задача 4. Вивести таблицю з 3 рядків і 7 стовпців
+    </h1>
+    <script>
+      document.write(
+        `<div style="display: inline-grid; grid-template-columns: repeat(7, 20px); padding:2px; gap: 3px; border: 1px solid #000;">`
+      )
+      for (let i = 0; i < 3; i++) {
+        for (let j = 1; j <= 7; j++) {
+          document.write(`
+               <span style="border: 2px solid #000; padding:3px;">${j}</span>
+            `)
+        }
+      }
+      document.write(`</div>`)
+    </script>
+  </body>
+</html>

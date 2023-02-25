@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 15</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 15. Користувача поступово вводить показники температури протягом року. Знайти середню температуру.
+   </h1>
+
+   <script>
+      let nameMonth, totalSumm = 0
+
+
+      for (let allMonths = 1; allMonths <= 12; allMonths++) {
+         switch (allMonths) {
+            case 12: nameMonth = `Грудень`;
+               break
+            case 11: nameMonth = `Листопад`;
+               break
+            case 10: nameMonth = `Жовтень`;
+               break
+            case 9: nameMonth = `Вересень`;
+               break
+            case 8: nameMonth = `Серпень`;
+               break
+            case 7: nameMonth = `Липень`;
+               break
+            case 6: nameMonth = `Червень`;
+               break
+            case 5: nameMonth = `Травень`;
+               break
+            case 4: nameMonth = `Квітень`;
+               break
+            case 3: nameMonth = `Березень`;
+               break
+            case 2: nameMonth = `Лютий`;
+               break
+            case 1: nameMonth = `Січень`;
+               break
+         }
+         let userAnswer = parseFloat(prompt(`Введіть температуру за ${nameMonth}:`))
+         totalSumm += userAnswer
+      }
+
+      document.write(`Середнє значення температури за рік було ${totalSumm / 12}°`)
+   </script>
+</body>
+
+</html>
