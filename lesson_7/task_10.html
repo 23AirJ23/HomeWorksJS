@@ -20,10 +20,10 @@
       const temp3 = -6
       const temp4 = 10
 
-      function showResult(...arguments) {
+      function showResult(...temperatures) {
          let numberOfNegatives = 0
-         for (let i = 0; i < arguments.length; i++) {
-            if (arguments[i] < 0)
+         for (let i = 0; i < temperatures.length; i++) {
+            if (temperatures[i] < 0)
                numberOfNegatives++
          }
          return numberOfNegatives

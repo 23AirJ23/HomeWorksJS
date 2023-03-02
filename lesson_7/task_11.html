@@ -22,12 +22,12 @@
       const temp5 = 5
       const temp6 = 15
 
-      function showResult(...arguments) {
+      function showResult(...temperatures) {
          let summ = 0
          let quantityOfPositive = 0
-         for (let i = 0; i < arguments.length; i++) {
-            if (arguments[i] > 0) {
-               summ += arguments[i]
+         for (let i = 0; i < temperatures.length; i++) {
+            if (temperatures[i] > 0) {
+               summ += temperatures[i]
                quantityOfPositive++
             }
          }
