@@ -17,27 +17,27 @@
       function showSeason(month) {
          let result
          switch (month) {
-            case `Грудень`:
-            case `Січень`:
-            case `Лютий`: result = `Зима`
+            case 12:
+            case 1:
+            case 2: result = `Зима`
                break;
-            case `Березень`:
-            case `Квітень`:
-            case `Травень`: result = `Весна`
+            case 3:
+            case 4:
+            case 5: result = `Весна`
                break;
-            case `Червень`:
-            case `Липень`:
-            case `Серпень`: result = `Літо`
+            case 6:
+            case 7:
+            case 8: result = `Літо`
                break;
-            case `Вересень`:
-            case `Жовтень`:
-            case `Листопад`: result = `Осінь`
+            case 9:
+            case 10:
+            case 11: result = `Осінь`
                break;
          }
          return result
       }
 
-      let month = prompt(`Введіть місяць, щоб дізнатись пору року:`)
+      let month = parseInt(prompt(`Введіть місяць, щоб дізнатись пору року:`))
       document.write(showSeason(month))
    </script>
 </body>
