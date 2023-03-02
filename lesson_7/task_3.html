@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 3</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 3. Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.
+   </h1>
+
+   <script>
+      function showStatus(userChois) {
+         let result
+         if (userChois < 6)
+            result = `Робочий день`
+         else
+            result = `Вихідний день`
+         return result
+      }
+
+      let userChois = parseInt(prompt(`Введіть бажаний номер дня:`))
+      document.write(showStatus(userChois))
+   </script>
+</body>
+
+</html>

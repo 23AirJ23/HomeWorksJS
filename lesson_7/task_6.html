@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 6</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 6. Створити окремі функції, які переводять:
+      1)Сантиметри у дюйми;
+      2)Кілограми у фунти;
+      3)Кілометри у милі.
+   </h1>
+
+   <script>
+      function getInch(centimeter) {
+         const inch = centimeter / 2.54
+         return inch
+      }
+      function getPounds(kilograms) {
+         const pounds = kilograms * 2.205
+         return pounds
+      }
+      function getMiles(kilometers) {
+         const miles = kilometers / 1.609
+         return miles
+      }
+
+      const inputCentimeter = parseFloat(prompt(`Введіть кількість сантиетрів:`))
+      const inputKilograms = parseFloat(prompt(`Введіть кількість кілограм:`))
+      const inputKilometers = parseFloat(prompt(`Введіть кількість кілометрів:`))
+
+      document.write(`Дюймів = ` + getInch(inputCentimeter).toFixed(3) + `;<br>` + ` Фунтів = ` + getPounds(inputKilograms).toFixed(3) + `;<br>` + ` Миль = ` + getMiles(inputKilometers).toFixed(3))
+
+   </script>
+</body>
+
+</html>

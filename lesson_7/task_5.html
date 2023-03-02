@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 5</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 5. Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних,
+      кількість додатних, кількість більших за 100.
+   </h1>
+
+   <script>
+      function getSolution(...arguments) {
+         let numberOfEven = 0
+         for (let i = 0; i < arguments.length; i++) {
+            if (arguments[i] % 2 == 0)
+               numberOfEven += 1
+         }
+         let numberOfPositive = 0
+         for (let i = 0; i < arguments.length; i++) {
+            if (arguments[i] > 0)
+               numberOfPositive += 1
+         }
+         let moreThanAHundred = 0
+         for (let i = 0; i < arguments.length; i++) {
+            if (arguments[i] > 100)
+               moreThanAHundred += 1
+         }
+         return [numberOfEven, numberOfPositive, moreThanAHundred]
+      }
+
+      const userNumber1 = parseInt(prompt(`Введіть перше число:`))
+      const userNumber2 = parseInt(prompt(`Введіть друге число:`))
+      const userNumber3 = parseInt(prompt(`Введіть третє число:`))
+
+      let message = getSolution(userNumber1, userNumber2, userNumber3)
+      document.write(`Кількість парних = ` + message[0] + `;<br>` + ` Кількість додатних = ` + message[1] + `;<br>` + ` Кількість більше за 100 = ` + message[2])
+   </script>
+</body>
+
+</html>

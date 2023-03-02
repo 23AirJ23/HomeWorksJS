@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 2</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 2. Створити функцію, яка за номером місяця повертає його назву.
+   </h1>
+
+   <script>
+      function showMonth(monthNumber) {
+         let result
+         switch (monthNumber) {
+            case `1`: result = `Січень`
+               break;
+            case `2`: result = `Лютий`
+               break;
+            case `3`: result = `Березень`
+               break;
+            case `4`: result = `Квітень`
+               break;
+            case `5`: result = `Травень`
+               break;
+            case `6`: result = `Червень`
+               break;
+            case `7`: result = `Липень`
+               break;
+            case `8`: result = `Серпень`
+               break;
+            case `9`: result = `Вересень`
+               break;
+            case `10`: result = `Жовтень`
+               break;
+            case `11`: result = `Листопад`
+               break;
+            case `12`: result = `Грудень`
+               break;
+         }
+         return result
+      }
+
+      let monthNumber = prompt(`Введіть бажаний номер місяця:`)
+      document.write(showMonth(monthNumber))
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 9</title>
+   <style>
+      div {
+         max-width: 550px;
+      }
+
+      img {
+         max-width: 100%;
+         object-fit: cover;
+      }
+   </style>
+</head>
+<a href=""></a>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 9. Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок та посилання, куди
+      переходимо при кліку на зображення (тег img повине знаходитись у середині тега a).
+   </h1>
+
+   <script>
+      const picture = `<img src="img/Serze.jpg" alt="">`
+      const title = `Тут посилання`
+      const link = `https://www.google.com`
+      function showBanner(picture, title, link) {
+         return `<div><h2>${title}</h2><a href="${link}">${picture}</a>`
+      }
+      document.write(showBanner(picture, title, link))
+   </script>
+</body>
+
+</html>

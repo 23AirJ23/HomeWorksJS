@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 7</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 7. Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється
+      заданим фіксованим повідомленням).
+   </h1>
+   <script>
+      function buildTable(row, column, sentence) {
+         let table = `<table style="border: 1px solid #000;">`
+         for (let i = 0; i <= row; i++) {
+            table += `<tr>`
+            here: for (let j = 0; j <= column; j++) {
+               table += `<td style="border: 1px solid #000;">`
+               for (let m = 0; m < sentence.length; m++) {
+                  table += sentence[m]
+                  sentence.splice(0, 1)
+                  continue here
+               }
+               table += `;)`
+               table += `</td>`
+            }
+            table += `</tr>`
+         }
+         table += `</table>`
+         return table
+      }
+
+      const userRows = parseInt(prompt(`Введіть кількість рядків:`))
+      const userColumns = parseInt(prompt(`Введіть кількість стовпців:`))
+      let message = `Тут має бути таблиця з фіксованим повідомленням`
+      let messageArr = message.split(` `)
+      document.write(buildTable(userRows, userColumns, messageArr))
+      console.log(messageArr);
+   </script>
+</body>
+
+</html>

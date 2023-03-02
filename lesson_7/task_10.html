@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 10</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 10. Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість
+      від’ємних показів температури.
+   </h1>
+
+   <script>
+      const temp1 = -5
+      const temp2 = -8
+      const temp3 = -6
+      const temp4 = 10
+
+      function showResult(...arguments) {
+         let numberOfNegatives = 0
+         for (let i = 0; i < arguments.length; i++) {
+            if (arguments[i] < 0)
+               numberOfNegatives++
+         }
+         return numberOfNegatives
+      }
+      document.write(showResult(temp1, temp2, temp3, temp4))
+   </script>
+</body>
+
+</html>

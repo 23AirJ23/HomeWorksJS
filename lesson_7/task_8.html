@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 8</title>
+   <style>
+      div {
+         max-width: 550px;
+      }
+
+      img {
+         max-width: 100%;
+         object-fit: cover;
+      }
+   </style>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 8. Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень (шляхи до зображень
+      передаються у функцію)
+   </h1>
+   <script>
+      function showImage() {
+         const randomNumber = Math.floor(Math.random() * 4) + 1
+         switch (randomNumber) {
+            case 1: result = `<div><img src="img/Serze.jpg" alt=""></div>`
+               break;
+            case 2: result = `<div><img src="img/960x540.webp" alt=""></div>`
+               break;
+            case 3: result = `<div><img src="img/800_0_1656497312-3436.jpg" alt=""></div>`
+               break;
+            case 4: result = `<div><img src="img/grus-kart-so-sm-1-870x400.jpg" alt=""></div>`
+               break;
+         }
+         return result
+
+      }
+      document.write(showImage())
+   </script>
+</body>
+
+</html>

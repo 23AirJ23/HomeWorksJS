@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 11</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 11. Дано покази температур (довільна кількість). Розробити функцію, яка дозволить знайти середнє значення
+      для додатних показів температури.
+   </h1>
+
+   <script>
+      const temp1 = -5
+      const temp2 = -8
+      const temp3 = -6
+      const temp4 = 10
+      const temp5 = 5
+      const temp6 = 15
+
+      function showResult(...arguments) {
+         let summ = 0
+         let quantityOfPositive = 0
+         for (let i = 0; i < arguments.length; i++) {
+            if (arguments[i] > 0) {
+               summ += arguments[i]
+               quantityOfPositive++
+            }
+         }
+         let arithmeticMean = summ / quantityOfPositive
+         return arithmeticMean
+      }
+
+      document.write(showResult(temp1, temp2, temp3, temp4, temp5, temp6))
+   </script>
+</body>
+
+</html>
