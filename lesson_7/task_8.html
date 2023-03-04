@@ -24,22 +24,25 @@
       передаються у функцію)
    </h1>
    <script>
-      function showImage() {
+      function showImage(img1, img2, img3, img4) {
          const randomNumber = Math.floor(Math.random() * 4) + 1
          switch (randomNumber) {
-            case 1: result = `<div><img src="img/Serze.jpg" alt=""></div>`
+            case 1: result = `${img1}`
                break;
-            case 2: result = `<div><img src="img/960x540.webp" alt=""></div>`
+            case 2: result = `${img2}`
                break;
-            case 3: result = `<div><img src="img/800_0_1656497312-3436.jpg" alt=""></div>`
+            case 3: result = `${img3}`
                break;
-            case 4: result = `<div><img src="img/grus-kart-so-sm-1-870x400.jpg" alt=""></div>`
-               break;
+            case 4: result = `${img4}`
          }
          return result
 
       }
-      document.write(showImage())
+      const image_1 = `<div><img src="img/Serze.jpg" alt=""></div>`
+      const image_2 = `<div><img src="img/960x540.webp" alt=""></div>`
+      const image_3 = `<div><img src="img/800_0_1656497312-3436.jpg" alt=""></div>`
+      const image_4 = `<div><img src="img/grus-kart-so-sm-1-870x400.jpg" alt=""></div>`
+      document.write(showImage(image_1, image_2, image_3, image_4))
    </script>
 </body>
 
