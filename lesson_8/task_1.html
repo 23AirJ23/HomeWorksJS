@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 1</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 1. Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він
+      відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча
+      би одна трійка)).
+   </h1>
+
+   <script>
+      function getRatings(subjectNumber) {
+         let subjectsRatings = []
+         for (let i = 0; i < subjectNumber; i++) {
+            let randomRating = Math.floor(Math.random() * 5) + 1
+            subjectsRatings.push(randomRating)
+         }
+         return subjectsRatings
+      }
+
+      function getPerfomance(ratingsArr) {
+         let result
+         let averageScore = 0
+         for (let i = 0; i < ratingsArr.length; i++) {
+            if (ratingsArr[i] === 1) {
+               result = `Це взагалі дно...`
+               break
+            } else if (ratingsArr[i] === 2) {
+               result = `Ти двійчоник. Сідай вчи!`
+               break
+            } else if (ratingsArr[i] === 3) {
+               result = `Ти трійочник. Сідай вчи!`
+               break
+            } else if (ratingsArr[i] === 4) {
+               result = `Ти хорошист. Вже краще, та не ідеал.`
+               break
+            } else
+               result = `Ти відмінник. Можеш радіти, та не скидай обертів!`
+         }
+         for (let i = 0; i < ratingsArr.length; i++) {
+            averageScore += ratingsArr[i]
+         }
+         return result + `<br>Твій середній бал: ${averageScore / ratingsArr.length}`
+      }
+      document.write(getPerfomance(getRatings(5)))
+   </script>
+</body>
+
+</html>

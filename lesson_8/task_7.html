@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 7</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 7. Дано послідовність платіжок протягом року. Знайти
+      сумарну кількість грошей за:
+      1)за весь рік;
+      2)у першій половині року;
+      3)у другій половині року;
+      4)за літо;
+      5)за ІІ квартал;
+      6)за парні місяці (з парними номерами);
+      7)за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+   </h1>
+
+   <script>
+      function fillArray(monthAmount) {
+         let paymentsArr = []
+         for (let i = 0; i < monthAmount; i++) {
+            const randomNumber = Math.floor(Math.random() * 100) + 1
+            paymentsArr.push(randomNumber)
+         }
+         return paymentsArr
+      }
+
+      function findTotalAmount(paymentsList) {
+         let allYear = 0
+         let firstHalfYear = 0
+         let secondHalfYear = 0
+         let summerMonths = 0
+         let secondQuarter = 0
+         let evenMonths = 0
+         let initialMonths = 0
+         for (let i = 0; i < paymentsList.length; i++) {
+            allYear += paymentsList[i]
+            if (i < 6)
+               firstHalfYear += paymentsList[i]
+            if (i > 5)
+               secondHalfYear += paymentsList[i]
+            if (i > 4 && i < 8)
+               summerMonths += paymentsList[i]
+            if (i > 2 && i < 6)
+               secondQuarter += paymentsList[i]
+            if (i % 2 === 0)
+               evenMonths += paymentsList[i]
+            if (i === 2 || i === 5 || i === 8 || i === 11)
+               initialMonths += paymentsList[i]
+         }
+         return `Сумми платіжок:<br>За весь рік: ${allYear}грн.;<br>За першу половину року: ${firstHalfYear}грн.;<br>За другу половину року: ${secondHalfYear}грн.;<br>За літні місяці: ${summerMonths}грн.;<br>За другий квартал: ${secondQuarter}грн.;<br>За парні місяці: ${evenMonths}грн.;<br>За початкові місяці: ${initialMonths}грн.<br>`
+      }
+
+      document.write(findTotalAmount(fillArray(12)))
+   </script>
+</body>
+
+</html>

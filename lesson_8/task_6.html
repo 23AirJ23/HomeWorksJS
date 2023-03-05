@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 6</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 6. Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які може собі дозволити
+      користувач (кількість грошей задається).
+   </h1>
+
+   <script>
+      const productPrices = [1000, 20, 31]
+      const productTitles = [`Cир`, `Сік`, `Хліб`]
+      const userAmountOfMoney = parseFloat(prompt(`Скільки бажаєте витратити?`))
+
+      function chooseAnOption(prices, titles, userMoney) {
+         let positiveAnswer = ``
+         let result
+         for (let i = 0; i < prices.length; i++) {
+            if (userMoney >= prices[i])
+               positiveAnswer += `${titles[i]}: ${prices[i]}грн.; `
+         }
+         if (positiveAnswer)
+            result = `Ти собі можеш дозволити: ${positiveAnswer}`
+         else
+            result = `Нажаль, в тебе не вистачає грошей`
+
+         return result
+      }
+      document.write(chooseAnOption(productPrices, productTitles, userAmountOfMoney))
+   </script>
+</body>
+
+</html>

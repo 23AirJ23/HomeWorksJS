@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 8</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 8. Дано одновимірний масив, у якому зберігається певна
+      виграшна сума (елементи заповнюються випадковим чином значеннями від -500 до 500). Надаючи користувачу можливість
+      вибирати номери елементів (поки він не відмовиться). Знаходити сумарний виграш.
+   </h1>
+
+   <script>
+      function createRandomArr(numberOfIteration) {
+         let winSummArr = []
+         for (let i = 0; i < numberOfIteration; i++) {
+            const randomNumber = Math.floor(Math.random() * 1001) + (-500)
+            winSummArr.push(randomNumber)
+         }
+         return winSummArr
+      }
+
+      function checkGameMode(choisesArr) {
+         let finalSumm = 0
+         let allchoises = []
+         let userUnswer
+         let result = ``
+         do {
+            userUnswer = parseInt(prompt(`Введіть номер ячейки від 0 до 100, та кожен раз додавайте сумму до виграшу. Також можна і відняти. Успіхів у грі!`))
+            for (let i = 0; i < choisesArr.length; i++) {
+               if (userUnswer === i) {
+                  finalSumm += choisesArr[i]
+                  allchoises.push(choisesArr[i])
+               }
+            }
+         } while (isFinite(userUnswer));
+         if (finalSumm < 0)
+            result = `Ваш остаточний виграш: ${finalSumm}грн. Будь-ласка, оплатіть борг на касі)`
+         else
+            result = `Ваш остаточний виграш: ${finalSumm}грн. Вітаю! Грайте ще.`
+         return `${result}<br>Ви вибирали такі варіанти: ${allchoises}`
+      }
+      document.write(checkGameMode(createRandomArr(100)))
+   </script>
+</body>
+
+</html>

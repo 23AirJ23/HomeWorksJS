@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 2</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 2. Дано масив, який зберігає кількість відвідувачів
+      магазину протягом тижня. Вивести на екран:
+      1)номери днів, протягом яких кількість відвідувачів була меншою за 20;
+      2)номери днів, коли кількість відвідувачів була мінімальною;
+      3)номери днів, коли кількість відвідувачів була мінімальною;
+      4)загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.
+   </h1>
+
+   <script>
+      // Можна було розбити масиви на змінні та вивести більш гарно. Та здається, і так ускладнив достатньо
+      const weekNumberVisiters = [50, 19, 19, 63, 42, 89, 124]
+      function getDaysNumberLess_20(weekNumberVisiters) {
+         let lessThen_20 = []
+         let result = ``
+         let day
+         for (let i = 0; i < weekNumberVisiters.length; i++) {
+            if (weekNumberVisiters[i] < 20)
+               lessThen_20.push(i + 1)
+         }
+         for (let i = 0; i < lessThen_20.length; i++) {
+            let temp = lessThen_20[i]
+            switch (temp) {
+               case 1: day = `Понеділок`
+                  break;
+               case 2: day = `Вівторок`
+                  break;
+               case 3: day = `Середа`
+                  break;
+               case 4: day = `Четвер`
+                  break;
+               case 5: day = `Пʼятниця`
+                  break;
+               case 6: day = `Субота`
+                  break;
+               case 7: day = `Неділя`
+            }
+            result += `<span>${day}; <span>`
+         }
+         return result
+      }
+
+      function getMinVisitors(weekNumberVisiters) {
+         let minimumVisitors = +Infinity
+         let minCustomersDays = []
+         let result = ``
+         let day
+         for (let i = 0; i < weekNumberVisiters.length; i++) {
+            if (weekNumberVisiters[i] < minimumVisitors)
+               minimumVisitors = weekNumberVisiters[i]
+         }
+         for (let j = 0; j < weekNumberVisiters.length; j++) {
+            if (minimumVisitors === weekNumberVisiters[j])
+               minCustomersDays.push(j + 1)
+         }
+         for (let i = 0; i < minCustomersDays.length; i++) {
+            let temp = minCustomersDays[i]
+            switch (temp) {
+               case 1: day = `Понеділок`
+                  break;
+               case 2: day = `Вівторок`
+                  break;
+               case 3: day = `Середа`
+                  break;
+               case 4: day = `Четвер`
+                  break;
+               case 5: day = `Пʼятниця`
+                  break;
+               case 6: day = `Субота`
+                  break;
+               case 7: day = `Неділя`
+            }
+            result += `<span>${day}; <span>`
+         }
+         return result
+      }
+      function getMaxVisitors(weekNumberVisiters) {
+         let maximumVisitors = -Infinity
+         let maxCustomersDays = []
+         let result = ``
+         let day
+         for (let i = 0; i < weekNumberVisiters.length; i++) {
+            if (weekNumberVisiters[i] > maximumVisitors)
+               maximumVisitors = weekNumberVisiters[i]
+         }
+         for (let j = 0; j < weekNumberVisiters.length; j++) {
+            if (maximumVisitors === weekNumberVisiters[j])
+               maxCustomersDays.push(j + 1)
+         }
+         for (let i = 0; i < maxCustomersDays.length; i++) {
+            let temp = maxCustomersDays[i]
+            switch (temp) {
+               case 1: day = `Понеділок`
+                  break;
+               case 2: day = `Вівторок`
+                  break;
+               case 3: day = `Середа`
+                  break;
+               case 4: day = `Четвер`
+                  break;
+               case 5: day = `Пʼятниця`
+                  break;
+               case 6: day = `Субота`
+                  break;
+               case 7: day = `Неділя`
+            }
+            result += `<span>${day}; <span>`
+         }
+         return result
+      }
+      function getSumm(weekNumberVisiters) {
+         let workingDays = 0
+         let daysOff = 0
+         for (let i = 0; i < weekNumberVisiters.length; i++) {
+            if (i < 5)
+               workingDays += weekNumberVisiters[i]
+            else
+               daysOff += weekNumberVisiters[i]
+         }
+         return `В робочі дні: ${workingDays};<br> У вихідні: ${daysOff}`
+      }
+
+      document.write(`
+      Дні, коли менше 20-ти відвідувачів: ${getDaysNumberLess_20(weekNumberVisiters)} <br>
+      День(ні) тижня з мінімальною відвіданістю: ${getMinVisitors(weekNumberVisiters)} <br>
+      День(ні) тижня з максимальною відвіданістю: ${getMaxVisitors(weekNumberVisiters)} <br>
+      ${getSumm(weekNumberVisiters)}.
+      `)
+
+
+   </script>
+</body>
+
+</html>

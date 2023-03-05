@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 5</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 5. Дано послідовність оцінок учня. Підрахувати кількість:
+      1) двійок
+      2) кількість хороших оцінок (добре, відмінно);
+      3) кількість оцінок, які нижче середнього.
+   </h1>
+
+   <script>
+      const geometryRating = 3
+      const physicsRating = 2
+      const physicalTrainingRating = 5
+      const historyRating = 4
+      const compScienceRating = 3
+
+      function countRating(...ratings) {
+         count_2 = 0
+         countFine = 0
+         countBelowAverage = 0
+         for (let i = 0; i < ratings.length; i++) {
+            if (ratings[i] === 2)
+               count_2++
+            if (ratings[i] > 3)
+               countFine++
+            if (ratings[i] < 4)
+               countBelowAverage++
+         }
+         return `Кількість двійок: ${count_2}<br>Кількість хороших оцінок: ${countFine}<br>Кількість оцінок, які нижче середньго: ${countBelowAverage}`
+      }
+      document.write(countRating(geometryRating, physicsRating, physicalTrainingRating, historyRating, compScienceRating))
+   </script>
+</body>
+
+</html>

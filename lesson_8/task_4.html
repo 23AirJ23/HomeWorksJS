@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 4</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Задача 4. Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+      • починаються на букву «А»;
+      • перша і остання літери співпадають;
+      • складаються з більше ніш 5 символів;
+   </h1>
+   <script>
+      const autoNumbers = [`КР2802Р`, `ТТ00000ТТ`, `МАЖОР`, `АТ3402КТ`, `АА3333АА`]
+
+      function getSamples(autoNumbersArr) {
+         let temp
+         let count_A = 0
+         let firstAndLast = 0
+         let moreThan_5 = 0
+         for (let i = 0; i < autoNumbersArr.length; i++) {
+            temp = autoNumbers[i]
+            if (temp[0] === `А`)
+               count_A++
+            if (temp[0] === temp[temp.length - 1])
+               firstAndLast++
+            if (temp.length > 6)
+               moreThan_5++
+            temp = ``
+         }
+         return `Починаються з букви А: ${count_A};<br>Перша і остання співпадають: ${firstAndLast};<br>Більше ніж 5: ${moreThan_5}`
+      }
+
+      document.write(getSamples(autoNumbers))
+   </script>
+</body>
+
+</html>
