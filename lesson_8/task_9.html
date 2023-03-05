@@ -36,7 +36,7 @@
          let result = `Вітаю. Ви потопили всі кораблі!`
          here: for (let i = 0; i < arrWithBoats.length; i++) {
             if (arrWithBoats.includes(1)) {
-               const userGuess = parseInt(prompt(`Вгадайте в якій клітинці знаходяться кораблі. Варіанти З 0 до ${cellsNumber - 1}`))
+               const userGuess = parseInt(prompt(`Вгадайте в якій клітинці знаходяться кораблі. Варіанти з 0 до ${cellsNumber - 1}`))
                for (let j = userGuess; j < arrWithBoats.length; j++) {
                   if (arrWithBoats[userGuess] === 1)
                      arrWithBoats[userGuess] = 0
@@ -49,7 +49,6 @@
          return result
       }
       document.write(`${buildGame(collectArrey(cellsNumber, boatsNumber))}<br>`)
-      document.write(`Кораблі були на таких позиціях: ${collectArrey(cellsNumber, boatsNumber)}`)
    </script>
 </body>
 
