@@ -19,19 +19,16 @@
       const autoNumbers = [`КР2802Р`, `ТТ00000ТТ`, `МАЖОР`, `АТ3402КТ`, `АА3333АА`]
 
       function getSamples(autoNumbersArr) {
-         let temp
          let count_A = 0
          let firstAndLast = 0
          let moreThan_5 = 0
          for (let i = 0; i < autoNumbersArr.length; i++) {
-            temp = autoNumbers[i]
-            if (temp[0] === `А`)
+            if (autoNumbers[i][0] === `А`)
                count_A++
-            if (temp[0] === temp[temp.length - 1])
+            if (autoNumbers[i][0] === autoNumbers[i][autoNumbers[i].length - 1])
                firstAndLast++
-            if (temp.length > 6)
+            if (autoNumbers[i].length > 6)
                moreThan_5++
-            temp = ``
          }
          return `Починаються з букви А: ${count_A};<br>Перша і остання співпадають: ${firstAndLast};<br>Більше ніж 5: ${moreThan_5}`
       }
