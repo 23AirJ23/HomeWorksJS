@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 8</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Завдання 8. Дано масив номерів авто. Сформувати новий масив тих,
+      які починаються на «А».
+   </h1>
+
+   <script>
+      const autoNumbers = ["AA3450КР", "ВР5620АА", "КA3670ПР", "AТ9328ВР", "AК3830ВН"]
+
+      function createArrayWith_A(arr) {
+         const newArray = arr.filter(element =>
+            element[0] === "A"
+         )
+         return newArray
+      }
+      document.write(`Початковий масив: ${autoNumbers}; <br> Вибірковий масив: ${createArrayWith_A(autoNumbers)}`)
+   </script>
+</body>
+
+</html>

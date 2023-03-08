@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 4</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Завдання 4. Дано масив елементів. Вивести на екран елементи, що
+      більші за 100.
+   </h1>
+
+   <script>
+      const userArrayLength = parseInt(prompt("Введіть бажану довжину масиву:"))
+      function createArray(length) {
+         let newArray = []
+         for (let i = 0; i < length; i++) {
+            const randomNumber = Math.floor(Math.random() * 500) + 1
+            newArray.push(randomNumber)
+         }
+         return newArray
+      }
+      function findSumm(arr) {
+         let finalSumm = 0
+         for (const element of arr) {
+            if (element > 100)
+               finalSumm += element
+         }
+         return finalSumm
+      }
+      document.write(`Масив елементів: ${createArray(userArrayLength)}; <br> Фінальна сумма: ${findSumm(createArray(userArrayLength))}.`)
+   </script>
+</body>
+
+</html>

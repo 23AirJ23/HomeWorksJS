@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 10</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Завдання 10. Дано масив цін у грн. Податок складає 20%. Сформувати
+      масив, який буде містити величину сплаченого податку у грн.
+   </h1>
+
+   <script>
+      const pricesList = [250, 466, 3557, 3325, 86423, 123, 4684, 335]
+
+      function createTaxList(arr) {
+         const taxList = arr.map(element => Math.floor(element * 0.2))
+         return taxList
+      }
+      document.write(`Сумми сплаченого податку: ${createTaxList(pricesList)}`)
+   </script>
+</body>
+
+</html>

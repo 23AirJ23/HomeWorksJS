@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 2</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Завдання 2. Користувач вводить кількість елементів. Створити масив, у якому перша половина заповнена 1-цями, а
+      друга заповнена 7-ками.
+   </h1>
+
+   <script>
+      const userNumber = parseInt(prompt("Введіть кількість елементів для створення масиву:"))
+      const fiftyProcentOfArray = userNumber / 2
+      let newArray = new Array(userNumber)
+      newArray.fill(1, 0, fiftyProcentOfArray)
+      newArray.fill(7, fiftyProcentOfArray)
+
+      document.write(`${newArray}`)
+   </script>
+</body>
+
+</html>

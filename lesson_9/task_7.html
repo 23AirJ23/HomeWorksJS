@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 7</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Завдання 7. Дано масив цін. Змінити цей масив так, що на ціни
+      товарів, які більші за 1000 грн. дати 30% знижки.
+   </h1>
+
+   <script>
+      const prices = [200, 1034, 2015, 56, 480, 1857]
+
+      function countDiscount(arr) {
+         arr.forEach((element, index, ArrRef) => {
+            if (element > 1000)
+               ArrRef[index] = element - (element * 0.3)
+         });
+         return arr
+      }
+      document.write(`Початковий масив: ${prices}; <br> Масив зі знижками: ${countDiscount(prices)}`)
+   </script>
+</body>
+
+</html>

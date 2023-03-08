@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 3</title>
+</head>
+
+<body>
+   <h1 style="font-size: 25px">
+      Завдання 3. Користувач вводить кількість елементів. Створити масив,
+      у якому перші 5 елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.
+   </h1>
+
+   <script>
+      const userNumber = parseInt(prompt("Введіть кількість елементів для створення масиву:"))
+
+      let newArray = new Array(userNumber)
+      newArray.fill(1, 0, 5)
+      newArray.fill(7, 5)
+
+      document.write(`${newArray}`)
+   </script>
+</body>
+
+</html>
