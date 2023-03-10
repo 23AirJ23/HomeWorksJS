@@ -18,10 +18,11 @@
       const namesList = ["Андрій", "Ной", "Дмитро", "Роман", "Іван", "Йоаким"]
 
       function createNewArray(arr) {
-         const newArray = arr.map(element => element[0])
-         return newArray
+         const firstLetersFromNames = arr.map(element => element[0])
+         return firstLetersFromNames
       }
-      document.write(`Фінальний масив з перших літер: ${createNewArray(namesList)}`)
+      const firstLetersFromNames = createNewArray(namesList)
+      document.write(`Фінальний масив з перших літер: ${firstLetersFromNames}`)
    </script>
 </body>
 

@@ -16,14 +16,10 @@
 
    <script>
       const userArrayLength = parseInt(prompt("Введіть бажану довжину масиву:"))
-      function createArray(length) {
-         let newArray = []
-         for (let i = 0; i < length; i++) {
-            const randomNumber = Math.floor(Math.random() * 201) - 100
-            newArray.push(randomNumber)
-         }
-         return newArray
-      }
+      const arrayWithElements = new Array(userArrayLength).fill(0).map((element, index, ArrRef) =>
+         ArrRef[index] = Math.floor(Math.random() * 201) - 100
+      )
+
       function findSummOfPositive(arr) {
          let finalSumm = 1
          for (const element of arr) {
@@ -32,7 +28,8 @@
          }
          return finalSumm
       }
-      document.write(`Добуток додатних елементів: ${findSummOfPositive(createArray(userArrayLength))}`)
+      const productOfPositivElements = findSummOfPositive(arrayWithElements)
+      document.write(`Добуток додатних елементів: ${productOfPositivElements}`)
 
    </script>
 </body>

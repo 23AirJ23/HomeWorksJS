@@ -21,7 +21,8 @@
          const taxList = arr.map(element => Math.floor(element * 0.2))
          return taxList
       }
-      document.write(`Сумми сплаченого податку: ${createTaxList(pricesList)}`)
+      const taxList = createTaxList(pricesList)
+      document.write(`Сумми сплаченого податку: ${taxList}`)
    </script>
 </body>
 

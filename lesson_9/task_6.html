@@ -16,14 +16,9 @@
 
    <script>
       const userArrayLength = parseInt(prompt("Введіть бажану довжину масиву:"))
-      function createArray(length) {
-         let newArray = []
-         for (let i = 0; i < length; i++) {
-            const randomNumber = Math.floor(Math.random() * 50) + 1
-            newArray.push(randomNumber)
-         }
-         return newArray
-      }
+      const arrayWithElements = new Array(userArrayLength).fill(0).map((element, index, ArrRef) =>
+         ArrRef[index] = Math.floor(Math.random() * 50) + 1
+      )
 
       function multiplyArray(arr) {
          arr.forEach((element, index, ArrRef) => {
@@ -32,7 +27,8 @@
          });
          return arr
       }
-      document.write(`Фінальний масив: ${multiplyArray(createArray(userArrayLength))}`)
+      const productOfElementsBiggerThanFirst = multiplyArray(arrayWithElements)
+      document.write(`Фінальний масив: ${productOfElementsBiggerThanFirst}`)
    </script>
 </body>
 

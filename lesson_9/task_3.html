@@ -17,9 +17,7 @@
    <script>
       const userNumber = parseInt(prompt("Введіть кількість елементів для створення масиву:"))
 
-      let newArray = new Array(userNumber)
-      newArray.fill(1, 0, 5)
-      newArray.fill(7, 5)
+      let newArray = new Array(userNumber).fill(1, 0, 5).fill(7, 5)
 
       document.write(`${newArray}`)
    </script>

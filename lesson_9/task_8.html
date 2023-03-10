@@ -18,12 +18,13 @@
       const autoNumbers = ["AA3450КР", "ВР5620АА", "КA3670ПР", "AТ9328ВР", "AК3830ВН"]
 
       function createArrayWith_A(arr) {
-         const newArray = arr.filter(element =>
+         const startWith_A = arr.filter(element =>
             element[0] === "A"
          )
-         return newArray
+         return startWith_A
       }
-      document.write(`Початковий масив: ${autoNumbers}; <br> Вибірковий масив: ${createArrayWith_A(autoNumbers)}`)
+      const startWith_A = createArrayWith_A(autoNumbers)
+      document.write(`Початковий масив: ${autoNumbers}; <br> Вибірковий масив: ${startWith_A}`)
    </script>
 </body>
 

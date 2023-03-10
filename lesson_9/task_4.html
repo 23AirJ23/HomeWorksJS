@@ -16,14 +16,10 @@
 
    <script>
       const userArrayLength = parseInt(prompt("Введіть бажану довжину масиву:"))
-      function createArray(length) {
-         let newArray = []
-         for (let i = 0; i < length; i++) {
-            const randomNumber = Math.floor(Math.random() * 500) + 1
-            newArray.push(randomNumber)
-         }
-         return newArray
-      }
+
+      const arrayWithElements = new Array(userArrayLength).fill(0).map((element, index, ArrRef) =>
+         ArrRef[index] = Math.floor(Math.random() * 200) + 1
+      )
       function findSumm(arr) {
          let finalSumm = 0
          for (const element of arr) {
@@ -32,7 +28,8 @@
          }
          return finalSumm
       }
-      document.write(`Масив елементів: ${createArray(userArrayLength)}; <br> Фінальна сумма: ${findSumm(createArray(userArrayLength))}.`)
+      const biggerThanHundred = findSumm(arrayWithElements)
+      document.write(`Масив елементів: ${arrayWithElements}; <br> Фінальна сумма: ${biggerThanHundred}.`)
    </script>
 </body>
 
