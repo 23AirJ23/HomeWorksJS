@@ -27,6 +27,7 @@
       // 1. Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
       const greateThanThousend = pricesList.filter(element => element > 1000)
       //document.write(`${greateThanThousend}`)
+      console.log(`Завдання 1: ${greateThanThousend}`);
 
       // 2. Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
       const numbersOfGreaterThanThousend = pricesList.reduce((numbersOfGreaterThanThousend, element, index) => {
@@ -36,6 +37,7 @@
          return numbersOfGreaterThanThousend
       }, [])
       //document.write(`${numbersOfGreaterThanThousend}`)
+      console.log(`Завдання 2: ${numbersOfGreaterThanThousend}`);
 
       //3. Сформувати список з тих цін, які більші за попереднє значення
       const pricesBiggerThanPrevious = pricesList.reduce((pricesBiggerThanPrevious, element, index, ArrRef) => {
@@ -45,6 +47,7 @@
          return pricesBiggerThanPrevious
       }, [])
       //document.write(`${pricesBiggerThanPrevious}`)
+      console.log(`Завдання 3: ${pricesBiggerThanPrevious}`);
 
       //4. Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
       const maxNUmber = pricesList.reduce((previous, element) =>
@@ -54,6 +57,7 @@
          Math.round(element * 100 / maxNUmber)
       )
       //document.write(`${pricesInPercents}`)
+      console.log(`Завдання 4: ${pricesInPercents}`);
 
       //5. Підрахувати кількість змін цін
       const pricesSort = pricesList.sort((number1, number2) => {
@@ -69,18 +73,21 @@
          return previous
       }, 0)
       //document.write(`${amountOfPriceChanges}`)
+      console.log(`Завдання 5: ${amountOfPriceChanges}`);
 
       //6. Визначити, чи є ціна, що менше 1000
       const lessThanThousend = pricesList.some(element => element < 1000)
-      // if (lessThanThousend)
-      //    document.write(`Є елемент менший за тисячу`)
-      // else document.write(`Немає такого елементу`)
+      if (lessThanThousend)
+         console.log(`Завдання 6: Є елемент менший за тисячу`);
+      else console.log(`Завдання 6: Немає такого елементу`);
+
 
       //7. Визначати, чи усі ціни більше за 1000
       const BiggerThanHundred = pricesList.every(element => element > 1000)
-      // if(BiggerThanHundred)
-      // document.write(`Всі елементи більші за тисячу`)
-      // else document.write(`Не всі елементи більші за тисячу`)
+      if (BiggerThanHundred)
+         console.log(`Завдання 7: Всі елементи більші за тисячу`);
+      else console.log(`Завдання 7: Не всі елементи більші за тисячу`);
+
 
       //8. Підрахувати кількість цін, що більше за 1000
       const amountBiggerThanThousend = pricesList.reduce((previous, element) => {
@@ -89,6 +96,7 @@
          return previous
       }, 0)
       //document.write(`${amountBiggerThanThousend}`)
+      console.log(`Завдання 8: ${amountBiggerThanThousend}`);
 
       //9. Підрахувати суму цін, що більше за 1000
       const summBiggerThanThousend = pricesList.reduce((previous, element) => {
@@ -97,22 +105,27 @@
          return previous
       }, 0)
       //document.write(`${summBiggerThanThousend}`)
+      console.log(`Завдання 9: ${summBiggerThanThousend}`);
 
       //10. Знайти першу ціну, що більше за 1000
       const firstThatBiggerThanThousend = pricesList.find(element => element > 1000)
       //document.write(`${firstThatBiggerThanThousend}`)
+      console.log(`Завдання 10: ${firstThatBiggerThanThousend}`);
 
       //11. Знайти індекс першої ціни, що більше за 1000
       const firstThatBiggerThanThousendIndex = pricesList.findIndex(element => element > 1000)
       //document.write(`${firstThatBiggerThanThousendIndex}`)
+      console.log(`Завдання 11: ${firstThatBiggerThanThousendIndex}`);
 
       //12. Знайти останню ціну, що більше за 1000
       const lastThatBiggerThanThousend = pricesList.findLast(element => element > 1000)
       //document.write(`${lastThatBiggerThanThousend}`)
+      console.log(`Завдання 12: ${lastThatBiggerThanThousend}`);
 
       //13. Знайти індекс останньої ціни, що більше за 1000
       const lastThatBiggerThanThousendIndex = pricesList.findLastIndex(element => element > 1000)
       //document.write(`${lastThatBiggerThanThousendIndex}`)
+      console.log(`Завдання 13: ${lastThatBiggerThanThousendIndex}`);
    </script>
 </body>
 
