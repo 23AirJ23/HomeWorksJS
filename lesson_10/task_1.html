@@ -90,20 +90,12 @@
 
 
       //8. Підрахувати кількість цін, що більше за 1000
-      const amountBiggerThanThousend = pricesList.reduce((previous, element) => {
-         if (element > 1000)
-            previous += 1
-         return previous
-      }, 0)
+      const amountBiggerThanThousend = pricesList.reduce((previous, element) => (element > 1000) ? previous + 1 : previous, 0)
       //document.write(`${amountBiggerThanThousend}`)
       console.log(`Завдання 8: ${amountBiggerThanThousend}`);
 
       //9. Підрахувати суму цін, що більше за 1000
-      const summBiggerThanThousend = pricesList.reduce((previous, element) => {
-         if (element > 1000)
-            previous += element
-         return previous
-      }, 0)
+      const summBiggerThanThousend = pricesList.reduce((previous, element) => (element > 1000) ? previous + element : previous, 0)
       //document.write(`${summBiggerThanThousend}`)
       console.log(`Завдання 9: ${summBiggerThanThousend}`);
 
