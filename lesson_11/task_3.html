@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Task 3</title>
+  </head>
+
+  <body>
+    <h1 style="font-size: 25px">Завдання 3. Знайти суми елементів у вказаній області (1, 0)</h1>
+
+    <script>
+      const rowsNumber = parseInt(prompt("Введіть кількість рядків (Кількість масивів в головному масиві):", "0"))
+      const columnsNumber = parseInt(
+        prompt("Введіть кількість стовпців (Кількість елементів у внутрішніх масивах):", "0")
+      )
+
+      function writeNumbersInarray(rows, columns) {
+        let table = []
+        for (let i = 0; i < rowsNumber; i++) {
+          table.push([])
+          for (let j = 0; j < columnsNumber; j++) {
+            const randomNumber = Math.floor(Math.random() * 100) + 1
+            table[i].push(randomNumber)
+          }
+        }
+        return table
+      }
+      const table = writeNumbersInarray(rowsNumber, columnsNumber)
+      for (const array of table) {
+        document.write(`${array}<br>`)
+      }
+
+      function getFinalResult(table) {
+        let summ = 0
+        const mainArrayQuarter = Math.floor(table.length / 4)
+        const mainArrayHalf = Math.floor(table.length / 2)
+        const thirdQuarter = table.length - mainArrayQuarter
+        for (let i = mainArrayHalf; i < thirdQuarter; i++) {
+          for (let j = 0; j < table[i].length; j++) {
+            summ += table[i][j]
+          }
+        }
+        return summ
+      }
+      document.write(`<br>Результат: ${getFinalResult(table)}`)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Task 9</title>
+  </head>
+
+  <body>
+    <h1 style="font-size: 25px">
+      Завдання 9. Морський бій. Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів. Користувач
+      стріляє вказуючи координати. Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться
+      снаряди.
+    </h1>
+
+    <script>
+      let table = [
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+      ]
+      function addShips(table) {
+        let shipCount = 5
+        here: for (let n = 0; n < shipCount; n++) {
+          const randomRow = Math.floor(Math.random() * 6)
+          for (let i = 0; i < table.length; i++) {
+            if (i === randomRow) {
+              const randomColumn = Math.floor(Math.random() * 6)
+              for (let j = 0; j < table[i].length; j++) {
+                if (j === randomColumn) {
+                  table[i][j] = 1
+                  continue here
+                }
+              }
+            }
+          }
+        }
+        return table
+      }
+
+      const userNumberShots = parseInt(prompt("Введіть бажану кількість снарядів:", "0"))
+      function userGuess(table, count) {
+        let ships = 5
+        here: do {
+          const userNumberRow = parseInt(prompt("Стріляєм! Введіть номер рядка (0 - 5):", "0"))
+          const userNumberColumn = parseInt(prompt("Стріляєм! Введіть номер клітинки стовпця (0 - 5):", "0"))
+          for (let i = 0; i < table.length; i++) {
+            if (i === userNumberRow) {
+              for (let j = 0; j < table[i].length; j++) {
+                if (table[i][userNumberColumn] === 1) {
+                  table[i][userNumberColumn] = `X`
+                  ships--
+                  count--
+                  if (ships === 0) {
+                    alert(`Всі кораблі потоплені. Вітаю`)
+                    break here
+                  }
+                  alert(`Влучили! Спроб залишилось: ${count}`)
+                  continue here
+                } else {
+                  count--
+                  if (count === 0) {
+                    alert(`У Вас закінчились вистріли. Пощастить наступного разу! `)
+                    break here
+                  }
+                  alert(`Не влучили! Спробуйте ще`)
+                  continue here
+                }
+              }
+            }
+          }
+        } while (count > 0)
+        return table
+      }
+
+      //const game = userGuess(addShips(table), userNumberShots)
+      function createTable(table) {
+        let field = ``
+        field += `<table style="border: 1px solid #000; width: 400px; height: 400px;">`
+        for (let i = 0; i < table.length; i++) {
+          field += `<tr style = "">`
+          for (let j = 0; j < table[i].length; j++) {
+            field += `<th style = "border: 1px solid #000;">${table[i][j]}</th>`
+          }
+          field += `</tr>`
+        }
+        field += `</table>`
+        return field
+      }
+
+      document.write(`${createTable(userGuess(addShips(table), userNumberShots))}`)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Task 11</title>
+  </head>
+
+  <body>
+    <h1 style="font-size: 25px">Завдання 8. Дано інформацію про прибуток К магазинів протягом тижня. Знайти :</h1>
+
+    <script>
+      const amountOfStores = parseInt(prompt("Введіть кількість магазинів:", "0"))
+
+      function createStoresArray(amount) {
+        let table = []
+        for (let i = 0; i < amount; i++) {
+          table.push([])
+          for (let j = 0; j < 7; j++) {
+            const randomNumber = Math.floor(Math.random() * 1000) + 1
+            table[i].push(randomNumber)
+          }
+        }
+        return table
+      }
+      const table = createStoresArray(amountOfStores)
+
+      for (const array of table) {
+        document.write(`${array}<br><br>`)
+      }
+
+      //1) загальний прибуток кожного масиву за тиждень:
+      // document.write(`<h2>1) загальний прибуток кожного масиву за тиждень:</h2>`)
+      // for (const row of table) {
+      //   let sum = 0
+      //   for (const el of row) {
+      //     sum += el
+      //   }
+      //   document.write(`Сумма за тиждень: ${sum}<br>`)
+      // }
+
+      //2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.):
+      // document.write(
+      //   `<h2>2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);</h2>`
+      // )
+      // let profitByDay = new Array(7).fill(0)
+
+      // for (let i = 0; i < table.length; i++) {
+      //   for (let j = 0; j < 7; j++) {
+      //     profitByDay[j] += table[i][j]
+      //   }
+      // }
+      // for (const el of profitByDay) {
+      //   document.write(`${el}<br>`)
+      // }
+
+      //3) загальний прибуток за робочі дні
+      // document.write(`<h2>3) загальний прибуток за робочі дні:</h2>`)
+      // const profitForWorkingDays = table.reduce((acc, element) => {
+      //   let someElement = element.reduce((acc, element, index) => {
+      //     if (index < 5) {
+      //       return acc + element
+      //     } else return acc
+      //   })
+      //   return (acc += someElement)
+      // }, 0)
+      // document.write(`Загальний прибуток за робочі дні: ${profitForWorkingDays}<br>`)
+
+      //4) загальний прибуток за вихідні дні
+      //document.write(`<h2>4) загальний прибуток за вихідні дні:</h2>`)
+
+      // const onlyWeekend = table
+      //   .map((element) => element.filter((element, index) => index > 4))
+      //   .reduce((acc, element) => {
+      //     let summ = element.reduce((acc, element) => {
+      //       return acc + element
+      //     })
+      //     return acc + summ
+      //   }, 0)
+      // document.write(`${onlyWeekend}`)
+
+      //5) максимальний прибуток за середу
+      // document.write(`<h2>5) максимальний прибуток за середу:</h2>`)
+
+      // const maximumProfitForWednesday = table
+      //   .map(element => element.filter((element, index) => index === 2))
+      //   .reduce((acc, element) => (acc > element ? acc : element))
+      // document.write(`${maximumProfitForWednesday}`)
+
+      //6) сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200
+      // document.write(`<h2>6) сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200:</h2>`)
+
+      // const valuesGreaterThan_200 = table
+      //   .map((element) => element.filter((element) => element > 200))
+      //   .reduce((acc, element) => acc.concat(element))
+      // document.write(`${valuesGreaterThan_200}`)
+
+      //7) відсортувати кожен тиждень за зростанням
+      //document.write(`<h2>7) відсортувати кожен тиждень за зростанням:</h2>`)
+      // Кращий Варіант
+      // const weeksByGrowth = JSON.parse(JSON.stringify(table))
+      // let key, num
+      // for (let i = 0; i < weeksByGrowth.length; i++) {
+      //   for (let j = 1; j < weeksByGrowth[i].length; j++) {
+      //     key = weeksByGrowth[i][j]
+      //     num = j - 1
+      //     while (num >= 0 && weeksByGrowth[i][num] > key) {
+      //       weeksByGrowth[i][num + 1] = weeksByGrowth[i][num]
+      //       num = num - 1
+      //     }
+      //     weeksByGrowth[i][num + 1] = key
+      //   }
+      // }
+      // // Варіант з sort
+      // // const weeksByGrowth = table.map((element) =>
+      // //   element.sort((el1, el2) => {
+      // //     if (el1 > el2) return 1
+      // //     if (el1 < el2) return -1
+      // //     else return 0
+      // //   })
+      // // )
+      // for (const array of weeksByGrowth) {
+      //   document.write(`${array}<br><br>`)
+      // }
+
+      // // 8)  відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків.
+      // document.write(
+      //   `<h2>8) відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків.</h2>`
+      // )
+      // Знаю, що сорт погано. Але як в цьому завданні, так і в 9му, де теж є мій коментар, не вдалось знайти інакший робочий вихід...
+
+      // // sortInDescendingOrder.sort((el1, el2) => {
+      // //   if (Math.max(...el1) > Math.max(...el2)) return -1
+      // //   if (Math.max(...el1) < Math.max(...el2)) return 1
+      // //   else return 0
+      // // })
+      // // for (const array of sortInDescendingOrder) {
+      // //   document.write(`${array}<br><br>`)
+      // // }
+
+      // // 9) упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).
+      // document.write(
+      //   `<h2>9) упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).</h2>`
+      // )
+
+      // Витратив купу часу, але перший варіант так і не запрацював належним чином. Знаходить перше мінімальне, а після якийсь хаос. Якщо не тяжко, підкажіть будьласка, де там помилка. А поки, варіант з sort робочий і коду менше.
+      //const sortInDescendingOrder = JSON.parse(JSON.stringify(table))
+      // let summOfEachWeek = sortInDescendingOrder.map(element => element.reduce((acc, element) => acc + element))
+      // let key, num
+      // for (let i = 1; i < summOfEachWeek.length; i++) {
+      //   key = sortInDescendingOrder[i]
+      //   num = i - 1
+      //   while (i >= 0 && summOfEachWeek[num] > summOfEachWeek[i]) {
+      //     sortInDescendingOrder[num + 1] = sortInDescendingOrder[num]
+      //     num = num - 1
+      //   }
+      //   sortInDescendingOrder[num + 1] = key
+      // }
+
+      // document.write(`${summOfEachWeek}<br><br>`)
+      // for (const array of sortInDescendingOrder) {
+      //   document.write(`${array}<br><br>`)
+      // }
+
+      // sortInDescendingOrder.sort((el1, el2) => {
+      //   if (el1.reduce((acc, element) => acc + element) > el2.reduce((acc, element) => acc + element)) return -1
+      //   if (el1.reduce((acc, element) => acc + element) < el2.reduce((acc, element) => acc + element)) return 1
+      //   else return 0
+      // })
+      // for (const array of sortInDescendingOrder) {
+      //   document.write(`${array}<br><br>`)
+      // }
+    </script>
+  </body>
+</html>
