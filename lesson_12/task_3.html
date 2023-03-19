@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 3</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 3. Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час
+		сортування включеннями.</h1>
+	<script>
+		function fillArrayWithNumbers() {
+			const arrBubbles = new Array()
+			for (let i = 0; i < 30; i++) {
+				const randomNumber = Math.floor(Math.random() * 100) + 1
+				arrBubbles.push(randomNumber)
+			}
+			return arrBubbles
+		}
+		let currentArr = fillArrayWithNumbers()
+
+		let key, num, count = 0
+		for (let i = 1; i < currentArr.length; i++) {
+			key = currentArr[i]
+			num = i - 1
+			while (i >= 0 && currentArr[num] > key) {
+				currentArr[num + 1] = currentArr[num]
+				//document.write(`<br>${currentArr}<br>`)
+				count++
+				num = num - 1
+			}
+			currentArr[num + 1] = key
+			count++
+		}
+
+		document.write(`Сортований масив включенням: ${currentArr}<br>Кількість обмиінів: ${count}`)
+	</script>
+</body>
+
+</html>

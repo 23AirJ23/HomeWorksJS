@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 5. Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук
+		визначити, чи є у масиві ім’я «Olga» і під яким індексом.</h1>
+	<script>
+		const namesArr = ["Tim", "Max", "Olga", "Victoria", "Leslie", "Andre", "Leo",]
+
+		function sortNames(arr) {
+			let key, num
+			for (let i = 1; i < arr.length; i++) {
+				key = arr[i]
+				num = i - 1
+				while (i >= 0 && arr[num] > key) {
+					arr[num + 1] = arr[num]
+					num = num - 1
+				}
+				arr[num + 1] = key
+			}
+			return arr
+		}
+
+		function binarySearch(arr, searchElement) {
+			let start = 0
+			let end = arr.length - 1
+			while (start <= end) {
+				const middle = Math.floor((start + end) / 2)
+				if (arr[middle] === searchElement) return middle
+				if (arr[middle] < searchElement) start = middle + 1
+				if (arr[middle] > searchElement) end = middle - 1
+			}
+			return -1
+		}
+
+		const sortArr = sortNames(namesArr)
+		const elementIndex = binarySearch(sortArr, "Olga")
+		document.write(`${sortArr}<br>`)
+
+		if (elementIndex !== -1) document.write(`Індекс: ${elementIndex}`)
+		else document.write(`Немає індексу`)
+	</script>
+</body>
+
+</html>

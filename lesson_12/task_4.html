@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 4. Для розглянутих методів сортування спробувати вивести етапи сортування шляхом
+		виведення відповідних таблиць за зразком.</h1>
+	<script>
+		function fillArrayWithNumbers() {
+			const arrBubbles = new Array()
+			for (let i = 0; i < 5; i++) {
+				const randomNumber = Math.floor(Math.random() * 100) + 1
+				arrBubbles.push(randomNumber)
+			}
+			return arrBubbles
+		}
+		let mixSorting = fillArrayWithNumbers()
+		let bubbleSorting = fillArrayWithNumbers()
+		let inclusionsSorting = fillArrayWithNumbers()
+
+
+		document.write(`<h2>1) Змішування</h2>До змішування: [${mixSorting}]<br>`)
+		function sortingMixing(arr) {
+			let leftIndex = 0
+			let rightIndex = arr.length - 1
+			let count = 0
+			while (leftIndex < rightIndex) {
+				for (let i = leftIndex; i < rightIndex; i++) {
+					if (arr[i] > arr[i + 1]) {
+						[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+						count++
+						document.write(`Змішування ${count}: [${arr}]<br>`)
+					}
+				}
+				rightIndex--
+
+				for (let i = rightIndex; i < leftIndex; i--) {
+					if (arr[i] < arr[i - 1]) {
+						[arr[i], arr[i - 1]] = [arr[i - 1], arr[i]]
+						count++
+						document.write(`Змішування ${count}: ${arr}<br>`)
+					}
+					leftIndex++
+				}
+			}
+			return arr
+		}
+		sortingMixing(mixSorting)
+
+		document.write(`<h2>1) Бульбашкою</h2>До зміни: [${bubbleSorting}]<br>`)
+		let changed, count1 = 0
+		do {
+			changed = false
+			for (let i = 1; i < bubbleSorting.length; i++) {
+				if (bubbleSorting[i - 1] > bubbleSorting[i]) {
+					let temp = bubbleSorting[i - 1]
+					bubbleSorting[i - 1] = bubbleSorting[i]
+					bubbleSorting[i] = temp
+					changed = true
+					count1++
+					document.write(`Зміна ${count1}: [${bubbleSorting}]<br>`)
+				}
+			}
+		} while (changed);
+
+		document.write(`<h2>1) Включеннями</h2>До зміни: [${inclusionsSorting}]<br>`)
+		let key, num, count2 = 0
+		for (let i = 1; i < inclusionsSorting.length; i++) {
+			key = inclusionsSorting[i]
+			num = i - 1
+			while (i >= 0 && inclusionsSorting[num] > key) {
+				inclusionsSorting[num + 1] = inclusionsSorting[num]
+				count2++
+				num = num - 1
+				document.write(`Зміна ${count2}: [${inclusionsSorting}]<br>`)
+			}
+			inclusionsSorting[num + 1] = key
+			count2++
+			document.write(`Зміна ${count2}: [${inclusionsSorting}]<br>`)
+		}
+	</script>
+</body>
+
+</html>

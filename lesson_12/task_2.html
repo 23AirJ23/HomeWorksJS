@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 2. Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час
+		сортування змішуванням.</h1>
+	<script>
+		function fillArrayWithNumbers() {
+			const arrBubbles = new Array()
+			for (let i = 0; i < 30; i++) {
+				const randomNumber = Math.floor(Math.random() * 100) + 1
+				arrBubbles.push(randomNumber)
+			}
+			return arrBubbles
+		}
+		let currentArr = fillArrayWithNumbers()
+
+		function sortingMixing(arr) {
+			let leftIndex = 0
+			let rightIndex = arr.length - 1
+			let count = 0
+
+			while (leftIndex < rightIndex) {
+				for (let i = leftIndex; i < rightIndex; i++) {
+					if (arr[i] > arr[i + 1]) {
+						[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+						count++
+					}
+				}
+				rightIndex--
+
+				for (let i = rightIndex; i < leftIndex; i--) {
+					if (arr[i] < arr[i - 1]) {
+						[arr[i], arr[i - 1]] = [arr[i - 1], arr[i]]
+						count++
+					}
+					leftIndex++
+				}
+			}
+			return [arr, count]
+		}
+		let result = sortingMixing(currentArr)
+		document.write(`Сортований список змішуванням: ${result[0]}<br>Кількість обмінів: ${result[1]}`)
+	</script>
+</body>
+
+</html>

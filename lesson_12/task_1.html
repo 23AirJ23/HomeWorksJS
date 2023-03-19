@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 1</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 1. Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час
+		сортування бульбашкою</h1>
+	<script>
+		function fillArrayWithNumbers() {
+			const arrBubbles = new Array()
+			for (let i = 0; i < 30; i++) {
+				const randomNumber = Math.floor(Math.random() * 100) + 1
+				arrBubbles.push(randomNumber)
+			}
+			return arrBubbles
+		}
+		let currentArr = fillArrayWithNumbers()
+
+		let changed, count = 0
+		do {
+			changed = false
+			for (let i = 1; i < currentArr.length; i++) {
+				if (currentArr[i - 1] > currentArr[i]) {
+					let temp = currentArr[i - 1]
+					currentArr[i - 1] = currentArr[i]
+					currentArr[i] = temp
+					changed = true
+					count++
+				}
+			}
+		} while (changed);
+		document.write(`Сортований масив бульбашкою: ${currentArr}<br>Кількість обмінів: ${count}`)
+	</script>
+</body>
+
+</html>
