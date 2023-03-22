@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 2. Нехай x0 = x1 = 1, xi = x(i-1) + 2x(i-2), де i = 2,3,.... Визначити Xn.
+		Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів</h1>
+	<script>
+		let x_0 = 1
+		let x_1 = 1
+		for (let i = 2; i <= 10; i++) {
+			x = x_1 + 2 * x_0
+			x_0 = x_1
+			x_1 = x
+		}
+		document.write(`${x_1}<br>`)
+
+		function recursiveAolution(x_0, x_1, i) {
+			let x
+			if (i > 10) {
+				let result = x_1
+				return result
+			} else {
+				x = x_1 + 2 * x_0
+				x_0 = x_1
+				x_1 = x
+				return recursiveAolution(x_0, x_1, i + 1)
+			}
+		}
+		let result = recursiveAolution(1, 1, 2)
+		document.write(`${result}`)
+	</script>
+</body>
+
+</html>

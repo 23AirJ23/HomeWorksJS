@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 5. Тренажер додавання. Кожні 10 секунд користувачу задають випадковий приклад з
+		додавання двох цифр і робиться перевірка.</h1>
+	<script>
+		function getRandomNum(min, max) {
+			let randomNum = Math.floor(Math.random() * (max - min + 1)) + min
+			return randomNum
+		}
+
+		function guessSumm() {
+			let num1 = getRandomNum(1, 100)
+			let num2 = getRandomNum(1, 100)
+			let summ = num1 + num2
+			let result
+			const userGuess = parseInt(prompt(`${num1} + ${num2}`))
+			if (summ === userGuess) result = "Це правильна відповідь!"
+			else result = "Відповідь не правильна. Пропустили школу?)"
+			return alert(result)
+		}
+		setInterval(guessSumm, 10000)
+	</script>
+</body>
+
+</html>

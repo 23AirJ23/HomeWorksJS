@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 4. З використанням замикань розробити ітератор, тобто функцію, що буде поступово
+		за окремими викликами видавати по одну букву наперед заданого слова. З використанням нього розробити гру
+		«Прекладач». Виводимо для користувача опис цього слова і по одну букву користувач вводить переклад цього слова.
+		Підрахувати кількість вгаданих букв.</h1>
+	<script>
+		function wordCounter(word) {
+			let currentPosition = -1
+			function counter() {
+				currentPosition += 1
+				if (currentPosition === word.length) {
+					currentPosition = 0
+				}
+				return word[currentPosition]
+			}
+			return counter
+		}
+		let result = wordCounter(`javascript`)
+
+
+		function guessWord(func) {
+			let win = 0
+			let counter = 0
+			do {
+				const userGuess = prompt("Яку мову програмування ми вивчаємо? Ваша літера:")
+				if (func() === userGuess.toLowerCase()) {
+					alert(`Вгадали`)
+					win += 1
+					counter += 1
+					document.write(userGuess.toLowerCase())
+				} else {
+					alert(`Не вгадали. Тримайте ще спробу.`)
+					win += 1
+					document.write(`<span style="color:red;">${userGuess.toLowerCase()}</span>`)
+				}
+			} while (win !== 10);
+			return counter
+		}
+		let game = guessWord(result)
+		document.write(`<br>Кількість вгаданих літер: ${game}`)
+	</script>
+</body>
+
+</html>

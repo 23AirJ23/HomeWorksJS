@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 1</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 1. Нехай x0 = 1, xi = x(i-1)+2i, де i = 1,2,.... Визначити . Розв’язати з
+		використанням рекурсивних і нерекурсивних алгоритмів</h1>
+	<script>
+		let x = 1
+		for (let i = 1; i <= 10; i++) {
+			x = x + 2 * i
+		}
+		document.write(`Нерекурсивний метод: ${x}<br>`)
+
+		function recursiveSolution(x, i) {
+			if (i > 10) {
+				let result = x
+				return result
+			}
+			else {
+				x = x + 2 * i
+				return recursiveSolution(x, i + 1)
+			}
+		}
+		let recursiveResult = recursiveSolution(1, 1)
+		document.write(`Рекурсивний метод: ${recursiveResult}`)
+	</script>
+</body>
+
+</html>
