@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 2. Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який
+		буде рік через N місяців.</h1>
+	<script>
+		let time = {
+			day: 10,
+			month: 5,
+			year: 2023
+		}
+
+		const userChoise = parseInt(prompt("Введіть кількість місяців:"))
+		function getYear({ day, month, year }, N) {
+			let temp = month + N
+			if (N > month) {
+				year += parseInt(temp / 12)
+			}
+			return year
+		}
+		let finalYear = getYear(time, userChoise)
+
+		document.write(`Рік після розрахунків буде: ${finalYear}`)
+	</script>
+</body>
+
+</html>
