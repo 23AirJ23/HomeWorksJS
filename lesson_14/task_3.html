@@ -19,7 +19,7 @@
 
 		// 1) Вивести загальну ціну:
 		const totalPrice = dataList.reduce((acc, el) => acc + el.price, 0)
-		document.write(`<b>Загальна ціна товарів</b>: ${totalPrice}<br>`)
+		document.write(`<b>1) Загальна ціна товарів</b>: ${totalPrice}<br>`)
 
 		// 2) Знайти кількість товарів, у яких ціна зменшилась (price < old_price).
 		const priceChange = dataList.reduce((acc, el) => {
@@ -27,12 +27,12 @@
 				acc++
 			return acc
 		}, 0)
-		document.write(`<b>Кількість товарів, у яких ціна зменшилась:</b> ${priceChange}<br>`)
+		document.write(`<b>2) Кількість товарів, у яких ціна зменшилась:</b> ${priceChange}<br>`)
 
 		// 3) Товари, які доступні (sell_status:"available")
 
 		const available = dataList.filter(el => el.sell_status === "available")
-		document.write(`<b>Товари, які доступні:</b> ${JSON.stringify(available)}<br>`)
+		document.write(`<b>3) Товари, які доступні:</b> ${JSON.stringify(available)}<br>`)
 
 		// 4) сформувати новий список об”єктів тільки доступних  для продажу товарів, які міститимуть тільки ідентифікатор товару (id), нову ціну (price), стару ціну (old_price), та ціну у доларах (usd_price)
 
@@ -44,7 +44,7 @@
 			if (product.sell_status === "available")
 				newList.push(getData(product))
 		}
-		document.write("<b>Новий список:</b><br>")
+		document.write("<b>4) Новий список:</b><br>")
 		for (const el of newList) {
 			document.write(`${JSON.stringify(el)}<br>`)
 		}
