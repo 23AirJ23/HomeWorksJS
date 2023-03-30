@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 2. Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць
+		і 0 в іншому випадку.</h1>
+	<script>
+		function ShootingGalery(count, min, max) {
+			this.arrShotGal = this.createShootingArr(count, min, max)
+		}
+
+		ShootingGalery.prototype.getRandomNum = function (minV, maxV) {
+			return Math.floor(Math.random() * (maxV - minV + 1)) + minV
+		}
+		ShootingGalery.prototype.createShootingArr = function (count, min, max) {
+			let temp = []
+			for (let i = 0; i < count; i++) {
+				const randomNum = this.getRandomNum(min, max)
+				temp.push(randomNum)
+			}
+			return temp
+		}
+		ShootingGalery.prototype.userShot = function () {
+			let userChoise = parseInt(prompt(`Виберіть квадрат для пострілу від 0 до ${this.arrShotGal.length}`))
+			for (let i = 0; i < this.arrShotGal.length; i++) {
+				if (this.arrShotGal[userChoise] === 1)
+					this.arrShotGal[userChoise] = "X"
+			}
+		}
+		ShootingGalery.prototype.buildField = function () {
+			let field = ``
+			for (let i = 0; i < this.arrShotGal.length; i++) {
+				field += `<div style="width: 50px; height: 40px; border: 2px solid #000; display: inline-block; text-align: center; font-size: 30px">${this.arrShotGal[i]}</div>`
+			}
+			return field
+		}
+		let resultField = new ShootingGalery(10, 0, 1)
+		resultField.userShot()
+		document.write(resultField.buildField())
+	</script>
+</body>
+
+</html>

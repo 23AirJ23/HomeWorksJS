@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 5. Розробити клас Baner</h1>
+	<script>
+		class Banner {
+			constructor(banner, link) {
+				this.banner = banner
+				this.link = link
+			}
+			getRandomBanner(minV, maxV) {
+				return Math.floor(Math.random() * (maxV - minV + 1)) + minV
+			}
+			toString() {
+				return `<a href="${this.link}"><img src="${this.banner}" alt=""></a>`
+			}
+		}
+		let bannerList = [
+			banner1 = new Banner(`img/800_0_1656497312-3436.jpg`, `google.com`),
+			banner2 = new Banner(`img/960x540.webp`, `ukr.net`),
+			banner3 = new Banner(`img/grus-kart-so-sm-1-870x400.jpg`, `facebook.com`),
+			banner4 = new Banner(`img/Serze.jpg`, `github.com`)
+		]
+		// Або, замість bannerList[0] одразу banner1
+		let number = bannerList[0].getRandomBanner(0, (bannerList.length - 1))
+		document.write(bannerList[number])
+
+	</script>
+</body>
+
+</html>

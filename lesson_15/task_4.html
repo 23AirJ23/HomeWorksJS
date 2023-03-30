@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 4. Розробити клас MultChecker для перевірки таблиці множення.</h1>
+	<script>
+		class MultChecker {
+			constructor(number) {
+				this.number = number
+				this.correctAnswer = 0
+				this.wrongAnswer = 0
+			}
+			exampleGeneration(minV, maxV) {
+				let randomNum = Math.floor(Math.random() * (maxV - minV + 1)) + minV
+				let userAnswer = parseInt(prompt(`Скільки буде ${this.number} * ${randomNum}`))
+				let result = this.number * randomNum
+				return [userAnswer, result]
+			}
+			checkingAnswer(min, max) {
+				for (let i = 0; i < 5; i++) {
+					let temp = this.exampleGeneration(min, max)
+					if (temp[0] === temp[1])
+						this.correctAnswer += 1
+					else this.wrongAnswer += 1
+				}
+			}
+			render() {
+				document.write(`Число яке перевіряємо ${this.number}<br>`)
+				document.write(`Правильних відповідей ${this.correctAnswer}<br>`)
+				document.write(`Неправильних відповідей ${this.wrongAnswer}<br>`)
+			}
+		}
+		let check = new MultChecker(10)
+		check.checkingAnswer(1, 10)
+		check.render()
+	</script>
+</body>
+
+</html>

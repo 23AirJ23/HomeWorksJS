@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 6</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 6. Розробити клас «Керівник танців»</h1>
+	<script>
+		class HeadOfDances {
+			constructor([...boys], [...girls]) {
+				this.boys = boys
+				this.girls = girls
+			}
+			randomBoy() {
+				let min = 0
+				let max = this.boys.length - 1
+				return Math.floor(Math.random() * (max - min + 1)) + min
+			}
+			randomGirl() {
+				let min = 0
+				let max = this.girls.length - 1
+				return Math.floor(Math.random() * (max - min + 1)) + min
+			}
+			toString() {
+				return `Танцювальною парою будуть: ${this.boys[this.randomBoy()]} та ${this.girls[this.randomGirl()]}`
+			}
+			run() {
+				setInterval(() => {
+					alert(this.toString())
+				}, 5000)
+			}
+		}
+		let dance = new HeadOfDances(["Ivan", "Peter", "Mike", "Bob", "Oliver"], ["Mary", "Victoria", "Liza", "Olivia", "Max"])
+		dance.run()
+	</script>
+</body>
+
+</html>

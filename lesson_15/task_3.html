@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 3</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 3. Створити об’єкт «Авто».</h1>
+	<script>
+		function Auto(brand, tankSize, availableLiters, seatsNumber, passengersNumber) {
+			this.brand = brand
+			this.tankSize = tankSize
+			this.availableLiters = availableLiters
+			this.seatsNumber = seatsNumber
+			this.passengersNumber = passengersNumber
+		}
+		Auto.prototype.refuelingAuto = function () {
+			let availableInTank = this.tankSize - this.availableLiters
+			let refuel = parseInt(prompt(`Ви можете заправити максимум ${availableInTank}. Яку кількість бажаєте?`))
+			if (refuel > availableInTank)
+				this.availableLiters += availableInTank
+			else this.availableLiters += refuel
+		}
+		Auto.prototype.additionPassengers = function () {
+			let freeSpace = this.seatsNumber - this.passengersNumber
+			let addition = parseInt(prompt(`Доступно вільних місць ${freeSpace}. Скільки пасажирів хочете додати?`))
+			if (addition > freeSpace) {
+				alert(`Забагато. Візімем тільки ${freeSpace}`)
+				this.passengersNumber += freeSpace
+			} else this.passengersNumber += addition
+		}
+		Auto.prototype.unloadingPassengers = function () {
+			let unloading = parseInt(prompt(`Скільки пасажирів висаджуємо?`))
+			if (unloading > this.passengersNumber)
+				this.passengersNumber = 0
+			else this.passengersNumber -= unloading
+		}
+
+		let auto = new Auto("BMW", 60, 10, 7, 2)
+		document.write(`Кількість літрів: ${auto.availableLiters}<br>`)
+		auto.refuelingAuto()
+		document.write(`Кількість літрів після заправки: ${auto.availableLiters}<br>`)
+		document.write(`Кількість пасажирів: ${auto.passengersNumber}<br>`)
+		auto.additionPassengers()
+		document.write(`Кількість пасажирів після додавання: ${auto.passengersNumber}<br>`)
+		auto.unloadingPassengers()
+		document.write(`Кількість пасажирів після висадки: ${auto.passengersNumber}<br>`)
+	</script>
+</body>
+
+</html>
