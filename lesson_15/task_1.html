@@ -38,10 +38,15 @@
 				}, 1)
 			}
 		}
-		document.write(`Сумма для першого: ${objNumbers1.getSumm(10, 70)}<br>`)
-		document.write(`Сумма для другого: ${objNumbers1.getSumm.call(objNumbers2, 5, 100)}<br>`)
-		document.write(`Добуток для першого: ${objNumbers2.getProduct.apply(objNumbers1, [20, 150])}<br>`)
-		document.write(`Добуток для другого: ${objNumbers2.getProduct(20, 140)}`)
+		let sum1 = objNumbers1.getSumm(10, 70)
+		let sum2 = objNumbers1.getSumm.call(objNumbers2, 5, 100)
+		let prod1 = objNumbers2.getProduct.apply(objNumbers1, [20, 150])
+		let prod2 = objNumbers2.getProduct(20, 140)
+
+		document.write(`Сумма для першого: ${sum1}<br>`)
+		document.write(`Сумма для другого: ${sum2}<br>`)
+		document.write(`Добуток для першого: ${prod1}<br>`)
+		document.write(`Добуток для другого: ${prod2}`)
 	</script>
 </body>
 
