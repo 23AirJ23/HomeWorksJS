@@ -38,8 +38,10 @@
 				}, 1)
 			}
 		}
+		document.write(`Сумма для першого: ${objNumbers1.getSumm(10, 70)}<br>`)
 		document.write(`Сумма для другого: ${objNumbers1.getSumm.call(objNumbers2, 5, 100)}<br>`)
-		document.write(`Добуток для першого: ${objNumbers2.getProduct.apply(objNumbers1, [20, 150])}`)
+		document.write(`Добуток для першого: ${objNumbers2.getProduct.apply(objNumbers1, [20, 150])}<br>`)
+		document.write(`Добуток для другого: ${objNumbers2.getProduct(20, 140)}`)
 	</script>
 </body>
 
