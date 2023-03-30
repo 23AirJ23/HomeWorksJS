@@ -23,7 +23,7 @@
 					if (num >= min && num <= max)
 						return prev + num
 					else return prev
-				}, 0)
+				},)
 			}
 		}
 
@@ -35,7 +35,7 @@
 					if (num >= min && num <= max)
 						return prev * num
 					else return prev
-				},)
+				}, 1)
 			}
 		}
 		document.write(`Сумма для другого: ${objNumbers1.getSumm.call(objNumbers2, 5, 100)}<br>`)
