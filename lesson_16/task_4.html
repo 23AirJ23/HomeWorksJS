@@ -47,8 +47,9 @@
 
 			get MaxSumm() {
 				let summ = 0
-				for (const banknot of this.banknots) {
-					summ += banknot.value * banknot.quantity
+				for (const banknot of this.banknots.reverse()) {
+					if (banknot.quantity > 0)
+						summ += banknot.value * banknot.quantity
 				}
 				return summ
 			}
