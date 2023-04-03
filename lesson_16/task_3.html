@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 3</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 3. Об’єкт “Фірма” (використати члени-класи)</h1>
+	<script>
+		class Services {
+			#price
+			constructor(title, price, time) {
+				this.title = title
+				this.Price = price
+				this.time = time
+			}
+
+			get Price() {
+				return this.#price
+			}
+			set Price(val) {
+				if (val < 0)
+					throw new Error(`Неможливе значачення`)
+				this.#price = val
+			}
+
+			toString() {
+				return `<b>Назва послуги</b>: ${this.title}; <b>Вартість</b>: ${this.Price}, <b>Час виконання</b>: ${this.time}`
+			}
+		}
+
+		class Adresses {
+			constructor(country, city, street, house) {
+				this.country = country
+				this.city = city
+				this.street = street
+				this.house = house
+			}
+
+			toString() {
+				return `<b>Країна</b>: ${this.country}, <b>Місто</b>: ${this.city}, <b>Вулиця</b>: ${this.street}, <b>Будинок</b>: ${this.house}`
+			}
+		}
+
+
+		//let services = [{ title: "cleaning", price: 500, time: 1 }, { title: "repair", price: 1000, time: 3 }, { title: "talking", price: 350, time: 0.5 }, { title: "programming", price: 4000, time: 5 }]
+		//let adresses = [{ country: "Ukraine", city: "Kyiv", street: "Main street", house: 12 }, { country: "Poland", city: "Varhsva", street: "Main street", house: 32 }, { country: "Ukraine", city: "Dnipro", street: "Some street", house: 16 }, { country: "Poland", city: "Krakov", street: "Some street", house: 54 }]
+
+		class Firm {
+			constructor(name, day) {
+				this.name = name
+				this.establishmentDay = day
+				this.services = [
+					new Services("Cleaning", 500, 1),
+					new Services("Repair", 1000, 3),
+					new Services("Talking", 350, 0.5),
+					new Services("Programming", 4000, 5)
+				]
+				this.adresses = [
+					new Adresses("Ukraine", "Kyiv", "Main street", 12),
+					new Adresses("Poland", "Varhsva", "Main street", 32),
+					new Adresses("Ukraine", "Dnipro", "Some street", 16),
+					new Adresses("Poland", "Krakov", "Some street", 54)
+				]
+			}
+
+			get ExistenceNUmber() {
+				let today = new Date().getFullYear()
+				return today - this.establishmentDay.year
+			}
+
+			getBranchInTown(town) {
+				let list = ``
+				for (const branch of this.adresses) {
+					if (town === branch.country) {
+						list += `${branch}<br>`
+					}
+				}
+				return list
+			}
+
+			getSomeservices(money, time) {
+				let list = ``
+				for (const service of this.services) {
+					if (money === service.Price && time === service.time) {
+						list += `${service}`
+					}
+				}
+				return list
+			}
+		}
+
+		let firm = new Firm("Try", { month: 03, year: 1990 })
+		let existence = firm.ExistenceNUmber
+		let UkraineBranches = firm.getBranchInTown("Ukraine")
+		let someServices = firm.getSomeservices(500, 1)
+		document.write(`Кількість років існування фірми: ${existence}<br><br>`)
+		document.write(`Філіали в Україні:<br> ${UkraineBranches}<br>`);
+		document.write(`Доступні сервіси: <br>${someServices}`);
+	</script>
+</body>
+
+</html>

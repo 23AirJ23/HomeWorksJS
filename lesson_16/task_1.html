@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 1</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 1. Створити клас TDate для роботи із датами у форматі “день.місяць.рік”. Дата
+		представляється структурою із трьома полями. Реалізувати методи збільшення/зменшення дати на певну кількість днів,
+		місяців чи років. Введення та виведення дати реалізувати за допомогою методу toString.</h1>
+	<script>
+		class TDate {
+			constructor(day, month, year) {
+				this.day = day
+				this.month = month
+				this.year = year
+			}
+			increaseYear(num) {
+				return this.year + num
+			}
+			increaseMonth(num) {
+				if ((this.month + num) > 12) {
+					this.year = this.year + Math.trunc((this.month + num) / 12)
+					this.month = (this.month + num) % 12
+				} else return this.month += num
+			}
+			whatMonth(month) {
+				if ((this.year % 4 == 0 && this.year % 100 != 0) || this.year % 400 == 0) {
+					if (month === 2) {
+						return 29
+					}
+				}
+				let result
+				switch (month) {
+					case 1:
+					case 3:
+					case 5:
+					case 7:
+					case 8:
+					case 10:
+					case 12: result = 31;
+						break
+					case 4:
+					case 6:
+					case 9:
+					case 11: result = 30;
+						break
+					case 2: result = 28;
+						break
+				}
+				return result
+			}
+			availableDays() {
+				let currentMonth = (this.whatMonth(this.month))
+				let availableDay = currentMonth - this.day
+				return availableDay
+			}
+			increaseDay(num) {
+				let temp = this.availableDays()
+				if (num > temp) {
+					do {
+						this.day = 0
+						num -= temp
+						this.increaseMonth(1)
+						temp = this.availableDays()
+					} while (num > temp);
+				}
+				return this.day += num
+			}
+			toString() {
+				return `Дата: ${this.day}:${this.month}:${this.year}`
+			}
+		}
+
+		let date = new TDate(5, 1, 2024)
+		date.increaseDay(56)
+		document.write(date)
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<h1 style="font-size: 25px">Завдання 2. Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у
+		вигляді доларового еквіваленту. Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у
+		гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому
+		полі.</h1>
+	<script>
+		class TMoney {
+			#dollarCourse
+			constructor(summ, course) {
+				this.dollarSumm = summ
+				this.DollarCourse = course
+
+			}
+			ExclusionMoney(val) {
+				let temp = val / this.DollarCourse
+				if (temp > this.dollarSumm)
+					throw new Error(`Недостатньо грошей для операції`)
+				else
+					return this.dollarSumm - temp
+
+			}
+
+			AddMoney(val) {
+				let temp = val / this.DollarCourse
+				return this.dollarSumm + temp
+			}
+
+			set DollarCourse(val) {
+				if (val < 0)
+					throw new Error(`Не логічна операцію`)
+				this.#dollarCourse = val + (100 / this.dollarSumm)
+			}
+
+			get DollarCourse() {
+				return this.#dollarCourse
+			}
+
+			toString() {
+				return `Залишок грошей: ${this.dollarSumm}; Поточний курс: ${this.DollarCourse.toFixed(2)}`
+			}
+		}
+
+		let money = new TMoney(1100, 30)
+		document.write(money)
+	</script>
+</body>
+
+</html>
