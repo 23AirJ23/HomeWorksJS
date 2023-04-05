@@ -68,6 +68,9 @@
 				}
 			}
 
+			toString() {
+				return `Максимальна сумма: ${this.MaxSumm}<br>Мінімальна сумма: ${this.MinSumm}<br>`
+			}
 			CashWithdrawal(summ) {
 				if (summ > this.MaxSumm) {
 					throw new Error(`Недостатньо коштів для знаття`)
@@ -88,10 +91,8 @@
 		}
 
 		let r = new TBankomat()
-		document.write(`Максимальна сумма: ${r.MaxSumm}<br>`)
-		document.write(`Мінімальна сумма: ${r.MinSumm}<br>`)
+		document.write(r)
 		document.write(`${r.CashWithdrawal(1255)}<br>`)
-		console.log(r.banknots);
 	</script>
 </body>
 
