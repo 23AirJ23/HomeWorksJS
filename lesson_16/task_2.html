@@ -24,22 +24,22 @@
 
 			}
 			ExclusionMoney(val) {
-				let temp = val / this.DollarCourse
-				if (temp > this.dollarSumm)
+				let convert = val / this.DollarCourse
+				if (convert > this.dollarSumm)
 					throw new Error(`Недостатньо грошей для операції`)
 				else
-					return this.dollarSumm - temp
+					return this.dollarSumm - convert
 
 			}
 
 			AddMoney(val) {
-				let temp = val / this.DollarCourse
-				return this.dollarSumm + temp
+				let convert = val / this.DollarCourse
+				return this.dollarSumm + convert
 			}
 
 			set DollarCourse(val) {
 				if (val < 0)
-					throw new Error(`Не логічна операцію`)
+					throw new Error(`Не логічна операція`)
 				this.#dollarCourse = val + (100 / this.dollarSumm)
 			}
 

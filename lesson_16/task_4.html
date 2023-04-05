@@ -15,49 +15,56 @@
 		поля для зберігання кількості купюр кожного із номіналів від 5 до 200 гривень. Реалізувати методи знаходження
 		максимальної та мінімальної сум, які може видати банкомат, та метод зняття деякої суми.</h1>
 	<script>
+		class Banknots {
+			#value
+			#quantity
+			constructor(value, quantity) {
+				this.Value = value
+				this.Quantity = quantity
+			}
+
+			get Value() {
+				return this.#value
+			}
+			get Quantity() {
+				return this.#quantity
+			}
+			set Value(val) {
+				if (val < 0)
+					throw new Error(`Операція неможлива`)
+				this.#value = val
+			}
+			set Quantity(val) {
+				if (val < 0)
+					throw new Error(`Операція неможлива`)
+				this.#quantity = val
+			}
+		}
 		class TBankomat {
 			constructor() {
 				this.banknots = [
-					{
-						value: 200,
-						quantity: 300
-					},
-					{
-						value: 100,
-						quantity: 250
-					},
-					{
-						value: 50,
-						quantity: 540
-					},
-					{
-						value: 20,
-						quantity: 800
-					},
-					{
-						value: 10,
-						quantity: 670
-					},
-					{
-						value: 5,
-						quantity: 100
-					}
+					new Banknots(200, 300),
+					new Banknots(100, 250),
+					new Banknots(50, 540),
+					new Banknots(20, 800),
+					new Banknots(10, 670),
+					new Banknots(5, 100)
 				]
 			}
 
 			get MaxSumm() {
 				let summ = 0
 				for (const banknot of this.banknots.reverse()) {
-					if (banknot.quantity > 0)
-						summ += banknot.value * banknot.quantity
+					if (banknot.Quantity > 0)
+						summ += banknot.Value * banknot.Quantity
 				}
 				return summ
 			}
 
 			get MinSumm() {
 				for (const banknot of this.banknots) {
-					if (banknot.quantity > 0)
-						return banknot.value
+					if (banknot.Quantity > 0)
+						return banknot.Value
 				}
 			}
 
@@ -68,11 +75,11 @@
 				while (summ > 0) {
 					for (let i = 0; i < this.banknots.length; i++) {
 						let temp = this.banknots[i]
-						let amountOfBanknots = Math.floor(summ / temp.value)
-						let minavailable = Math.min(amountOfBanknots, temp.quantity)
+						let amountOfBanknots = Math.floor(summ / temp.Value)
+						let minavailable = Math.min(amountOfBanknots, temp.Quantity)
 						if (minavailable >= 1) {
-							summ -= minavailable * temp.value
-							this.banknots[i].quantity -= minavailable
+							summ -= minavailable * temp.Value
+							this.banknots[i].Quantity -= minavailable
 						}
 					}
 				}
