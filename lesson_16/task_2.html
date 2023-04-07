@@ -21,15 +21,17 @@
 			constructor(summ, course) {
 				this.dollarSumm = summ
 				this.DollarCourse = course
+				this.newDollarCourse = this.dollarCourse_100(course)
 
 			}
 			ExclusionMoney(val) {
 				let convert = val / this.DollarCourse
 				if (convert > this.dollarSumm)
 					throw new Error(`Недостатньо грошей для операції`)
-				else
+				else {
+					alert(`Успішна операція`)
 					return this.dollarSumm - convert
-
+				}
 			}
 
 			AddMoney(val) {
@@ -37,10 +39,14 @@
 				return this.dollarSumm + convert
 			}
 
+			dollarCourse_100(val) {
+				return val + (100 / this.dollarSumm)
+			}
+
 			set DollarCourse(val) {
 				if (val < 0)
 					throw new Error(`Не логічна операція`)
-				this.#dollarCourse = val + (100 / this.dollarSumm)
+				this.#dollarCourse = val
 			}
 
 			get DollarCourse() {
@@ -48,7 +54,7 @@
 			}
 
 			toString() {
-				return `Залишок грошей: ${this.dollarSumm}; Поточний курс: ${this.DollarCourse.toFixed(2)}`
+				return `Залишок грошей: ${this.dollarSumm}; Поточний курс: ${this.DollarCourse.toFixed(2)}; Курс для збільшення на 100: ${this.newDollarCourse.toFixed(2)}`
 			}
 		}
 

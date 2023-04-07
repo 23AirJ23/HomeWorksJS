@@ -78,6 +78,8 @@
 						list += `${branch}<br>`
 					}
 				}
+				if (list.length === 0)
+					throw new Error(`Немає такого філіалу`)
 				return list
 			}
 
@@ -88,6 +90,8 @@
 						list += `${service}`
 					}
 				}
+				if (list.length === 0)
+					throw new Error(`Немає такої послуги`)
 				return list
 			}
 		}
