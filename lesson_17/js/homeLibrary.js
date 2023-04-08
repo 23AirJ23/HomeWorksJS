@@ -16,7 +16,14 @@ class HomeLibrary {
   addBook(newbook) {
     let newAuthor = new Author(newbook.authorName, newbook.birthDate, newbook.shortText)
     let newPublisher = new Publisher(newbook.publisherName, newbook.registrationDate, newbook.foundationYear)
-    let newBook = new Book(newAuthor, newbook.bookTitle, newbook.genre, newPublisher)
+    let newBook = new Book(
+      newAuthor,
+      newbook.bookTitle,
+      newbook.genre,
+      newPublisher,
+      newbook.availability,
+      newbook.origin
+    )
     this.books.push(newBook)
     for (const genre in this.sections) {
       if (newbook.genre === genre) {
@@ -69,11 +76,11 @@ class HomeLibrary {
     if (Array.isArray(info)) {
       let list = ``
       for (let i = 0; i < info.length; i++) {
-        list += `<b>Назва</b>: ${info[i].title} <b>Жанр</b>: ${info[i].genre} <b>Автор</b>: ${info[i].author.name} <b>Видавництво</b>: ${info[i].publisher.title}<br>`
+        list += `<b>Назва</b>: ${info[i].title} <b>Жанр</b>: ${info[i].genre} <b>Автор</b>: ${info[i].author.name} <b>Видавництво</b>: ${info[i].publisher.title} <b>В наявності</b>: ${info[i].availability}<br>`
       }
       return list
     } else {
-      return `<b>Назва</b>: ${info.title} <b>Жанр</b>: ${info.genre} <b>Автор</b>: ${info.author.name} <b>Видавництво</b>: ${info.publisher.title}`
+      return `<b>Назва</b>: ${info.title} <b>Жанр</b>: ${info.genre} <b>Автор</b>: ${info.author.name} <b>Видавництво</b>: ${info.publisher.title} <b>В наявності</b>: ${info.availability}`
     }
   }
 }
@@ -88,6 +95,8 @@ let book1 = {
   publisherName: 'Книжковий клуб "Клуб Сімейного Дозвілля"',
   registrationDate: 2001,
   foundationYear: 2001,
+  availability: "Так",
+  origin: "bought",
 }
 let book2 = {
   authorName: "Стівен Кінг",
@@ -99,6 +108,8 @@ let book2 = {
   publisherName: 'Книжковий клуб "Клуб Сімейного Дозвілля"',
   registrationDate: 2001,
   foundationYear: 2001,
+  availability: "Так",
+  origin: "bought",
 }
 let book3 = {
   authorName: "Едгар Алан По",
@@ -110,6 +121,8 @@ let book3 = {
   publisherName: "Фоліо",
   registrationDate: 2016,
   foundationYear: 2016,
+  availability: "Так",
+  origin: "bought",
 }
 let book4 = {
   authorName: "Вільям Блетті",
@@ -120,6 +133,8 @@ let book4 = {
   publisherName: "Фоліо",
   registrationDate: 2016,
   foundationYear: 2016,
+  availability: "Так",
+  origin: "bought",
 }
 let book5 = {
   authorName: "Ребекка Ф. Кван",
@@ -130,6 +145,8 @@ let book5 = {
   publisherName: "Жорж",
   registrationDate: 2010,
   foundationYear: 2010,
+  availability: "Так",
+  origin: "bought",
 }
 let myLibrary = new HomeLibrary()
 myLibrary.addBook(book1)
