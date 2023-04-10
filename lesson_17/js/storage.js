@@ -2,15 +2,8 @@ import Company from "./manufacturerCompany.js"
 import Goods from "./goods.js"
 
 class Storage {
-  constructor() {
-    this.goods = [
-      new Goods("Mi 11", "од", 1560, new Company("Xiaomi", 235670)),
-      new Goods("Iphone 14", "од", 10060, new Company("Apple", 38302)),
-      new Goods("Galaxy Note 10", "од", 12560, new Company("Samsung", 84206)),
-      new Goods("Huawei t10", "од", 4870, new Company("Huawei", 27649)),
-      new Goods("Odyssey", "од", 760, new Company("LG", 964347)),
-      new Goods("Tab 10", "од", 15960, new Company("Samsung", 84206)),
-    ]
+  constructor(goods) {
+    this.goods = goods
   }
 
   productRegistration(someGoods) {
@@ -61,8 +54,15 @@ class Storage {
     return result
   }
 }
-
-let storage = new Storage()
+let goods = [
+  new Goods("Mi 11", "од", 1560, new Company("Xiaomi", 235670)),
+  new Goods("Iphone 14", "од", 10060, new Company("Apple", 38302)),
+  new Goods("Galaxy Note 10", "од", 12560, new Company("Samsung", 84206)),
+  new Goods("Huawei t10", "од", 4870, new Company("Huawei", 27649)),
+  new Goods("Odyssey", "од", 760, new Company("LG", 964347)),
+  new Goods("Tab 10", "од", 15960, new Company("Samsung", 84206)),
+]
+let storage = new Storage(goods)
 storage.productRegistration({
   name: "Air Jordan",
   unit: "од.",
