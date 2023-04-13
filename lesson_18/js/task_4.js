@@ -6,7 +6,7 @@ function wishList() {
     let wish = `Бажання номер ${[i]}: ${wishList[randomNumber]};`
     let div = document.createElement("div")
     div.innerHTML = wish
-    document.getElementsByTagName("main")[0].append(div)
+    document.querySelector("main").append(div)
     wishList.splice(randomNumber, 1)
     num--
   }

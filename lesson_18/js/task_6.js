@@ -7,10 +7,10 @@ function createInputs() {
     input.classList.add("new-inputs__item")
     div.append(input)
   }
-  let button = document.getElementsByClassName("inputs-create")
-  button[0].after(div)
-  let newButton = document.getElementsByClassName("new-button")
-  newButton[0].style.display = "block"
+  let button = document.querySelector(".inputs-create")
+  button.after(div)
+  let newButton = document.querySelector(".new-button")
+  newButton.style.display = "block"
 }
 function getResult() {
   let inputs = document.getElementsByClassName("new-inputs__item")
@@ -21,12 +21,12 @@ function getResult() {
   let averageValue = summ / inputs.length
   let span = document.createElement("span")
   span.textContent = `Середнє значення: ${averageValue}`
-  let newButton = document.getElementsByClassName("new-button")
-  newButton[0].after(span)
+  let newButton = document.querySelector(".new-button")
+  newButton.after(span)
 }
 window.onload = function () {
-  let button = document.getElementsByClassName("inputs-create")
-  button[0].onclick = createInputs
-  let newButton = document.getElementsByClassName("new-button")
-  newButton[0].onclick = getResult
+  let button = document.querySelector(".inputs-create")
+  button.onclick = createInputs
+  let newButton = document.querySelector(".new-button")
+  newButton.onclick = getResult
 }
