@@ -1,0 +1,99 @@
+/* Перше звадання */
+.container{
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.instyle {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+label{
+	font-size: 16px;
+	font-weight: 700;
+}
+input{
+	height: 30px;
+}
+
+.buttons {
+	display: flex;
+	gap: 10px;
+	height: 35px;
+}
+/* Друге завдання */
+.convert {
+	height: 35px;
+}
+/* П'яте завдання */
+table{
+	border: 1px solid #000;
+	width: 200px;
+	height: 200px;
+	text-align: center;
+}
+td{
+	border: 1px solid #000;
+}
+/* Шосте завдання */
+.evaluations {
+	display: flex;
+	flex-direction: column;
+	max-width: 350px;
+}
+.evaluations__number{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+.inputs-create {
+	margin-bottom: 10px;
+	height: 30px;
+}
+.new-inputs{
+	display: flex;
+	gap: 10px;
+	margin-bottom: 10px;
+	max-width: 350px;
+	flex-wrap: wrap;
+}
+.new-button{
+	height: 30px;
+	display: none;
+	margin-bottom: 10px;
+}
+/* Сьоме завдання */
+.trip {
+	max-width: 300px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.transport {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.checkbox__item{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	gap: 10px;
+}
+
+.radio__item{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	gap: 10px;
+}
+.result{
+	display: flex;
+	flex-direction: column;
+	gap:10px;
+}
