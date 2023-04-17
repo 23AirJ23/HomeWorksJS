@@ -189,7 +189,7 @@
 	width: 200px;
 	height: 200px;
 	left: -25%;
-	animation: tank 20s 1 linear;
+	animation: tank 10s 1 linear;
 }
 .tank img{
 	max-width: 100%;
