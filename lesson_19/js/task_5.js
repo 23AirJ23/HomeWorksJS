@@ -8,8 +8,7 @@ class Tanks {
 
   getTanks() {
     for (let i = 0; i < this.tanksNumber; i++) {
-      let randomBottom = Math.floor(Math.random() * 30)
-      let randomAnimate = Math.floor(Math.random() * 5)
+      let randomBottom = Math.floor(Math.random() * 25)
       let tankDiv = document.createElement(`div`)
       tankDiv.className = "tank"
       let tankImg = document.createElement("img")
@@ -21,7 +20,7 @@ class Tanks {
 
       tankDiv.append(tankImg)
       tankDiv.append(boomImg)
-      tankDiv.style.cssText = `bottom: ${randomBottom}%; animation-delay: ${i}${randomAnimate}s; display: flex;`
+      tankDiv.style.cssText = `bottom: ${randomBottom}%; animation-delay: ${i}.5s; display: flex;`
 
       this.tanks.push(tankDiv)
       tankDiv.onclick = this.boom.bind(this, [this.tanks[i], tankImg, boomImg])
@@ -51,6 +50,6 @@ window.onload = () => {
   t.render()
   setTimeout(function timeout() {
     t.render()
-    setTimeout(timeout, 120000)
-  }, 120000)
+    setTimeout(timeout, 20000)
+  }, 20000)
 }
