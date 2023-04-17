@@ -187,17 +187,16 @@
 .tank{
 	position: absolute;
 	width: 200px;
-	height: 200px;
+	height: 150px;
 	left: -25%;
 	animation: tank 10s 1 linear;
 }
 .tank img{
 	max-width: 100%;
-	object-fit: contain;
+	object-fit: cover;
 }
 .boom-img{
 	display: none;
-	transform: scale(1.5);
 	object-position: center;
 }
 
