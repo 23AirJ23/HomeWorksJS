@@ -1,44 +1,33 @@
 class Sportsmen {
-  constructor(sportsmensList) {
+  constructor(sportsmensList, cssObject) {
     this.sportsmensCommonList = sportsmensList
     this.selectedList = []
     this.greenArrow = `./img/greenArrow.png`
     this.redArrow = `./img/redArrow.png`
-  }
-  showCommon() {
-    this.container = document.querySelector(".two-lists")
-    let commonDiv = document.createElement("div")
-    commonDiv.className = "sport-list"
-
-    this.container.append(commonDiv)
-
-    for (let i = 0; i < this.sportsmensCommonList.length; i++) {
-      this.commonButton = document.createElement("div")
-      this.commonButton.className = `green-button`
-      this.commonButton.innerHTML = this.sportsmensCommonList[i]
-      let greenArrow = document.createElement("img")
-      greenArrow.className = "common-image"
-      greenArrow.src = this.greenArrow
-      greenArrow.onclick = this.chooseSportsmen.bind(this, this.sportsmensCommonList[i])
-      this.commonButton.append(greenArrow)
-      commonDiv.append(this.commonButton)
+    this.cssObject = {
+      listDiv: `sport-list`,
+      listButton: `list-button`,
+      itemArrow: `common-image`,
+      ...(cssObject ?? {}),
     }
   }
 
-  showChoosen() {
-    let choosenDiv = document.createElement("div")
-    choosenDiv.className = "sport-list"
-    this.container.append(choosenDiv)
-    for (let i = 0; i < this.selectedList.length; i++) {
-      this.choosenButton = document.createElement("div")
-      this.choosenButton.className = `red-button`
-      this.choosenButton.innerHTML = this.selectedList[i]
-      let redArrow = document.createElement("img")
-      redArrow.className = "common-image"
-      redArrow.src = this.redArrow
-      redArrow.onclick = this.chooseSportsmen.bind(this, this.selectedList[i])
-      this.choosenButton.append(redArrow)
-      choosenDiv.append(this.choosenButton)
+  createList(list, arrowSrc) {
+    this.container = document.querySelector(".two-lists")
+    let namesList = document.createElement("div")
+    namesList.className = this.cssObject.listDiv
+    this.container.append(namesList)
+
+    for (let i = 0; i < list.length; i++) {
+      this.itemButton = document.createElement("div")
+      this.itemButton.className = this.cssObject.listButton
+      this.itemButton.innerHTML = list[i]
+      let itemArrow = document.createElement("img")
+      itemArrow.className = this.cssObject.itemArrow
+      itemArrow.src = arrowSrc
+      itemArrow.onclick = this.chooseSportsmen.bind(this, list[i])
+      this.itemButton.append(itemArrow)
+      namesList.append(this.itemButton)
     }
   }
   chooseSportsmen(text) {
@@ -47,24 +36,26 @@ class Sportsmen {
       let item = this.sportsmensCommonList.splice(ind, 1)
       this.selectedList.push(item)
       this.container.innerHTML = ``
-      this.showCommon()
-      this.showChoosen()
+      this.createList(this.sportsmensCommonList, this.greenArrow)
+      this.createList(this.selectedList, this.redArrow)
     }
     if (this.selectedList.includes(text)) {
       let ind = this.selectedList.findIndex(el => el === text)
       let item = this.selectedList.splice(ind, 1)
       this.sportsmensCommonList.push(item)
       this.container.innerHTML = ``
-      this.showCommon()
-      this.showChoosen()
+      this.createList(this.sportsmensCommonList, this.greenArrow)
+      this.createList(this.selectedList, this.redArrow)
     }
   }
 }
 
 window.onload = function () {
   let sp = new Sportsmen(sportsmensList)
-  sp.showCommon()
-  sp.showChoosen()
+  sp.createList(sp.sportsmensCommonList, sp.greenArrow)
+  sp.createList(sp.selectedList, sp.redArrow)
+  // sp.showCommon()
+  // sp.showChoosen()
 }
 
 let sportsmensList = [
