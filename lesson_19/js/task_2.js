@@ -54,8 +54,6 @@ window.onload = function () {
   let sp = new Sportsmen(sportsmensList)
   sp.createList(sp.sportsmensCommonList, sp.greenArrow)
   sp.createList(sp.selectedList, sp.redArrow)
-  // sp.showCommon()
-  // sp.showChoosen()
 }
 
 let sportsmensList = [
