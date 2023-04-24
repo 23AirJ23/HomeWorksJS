@@ -1,0 +1,172 @@
+/* Завдання 1 ---------------------------------------------*/
+.items-container{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+}
+.item-container{
+	display: flex;
+	gap: 10px;
+	height: 100px;
+	align-items: center;
+	outline: 1px solid black;
+	overflow: hidden;
+	flex-wrap: wrap;
+	padding: 5px;
+	max-width: 700px;
+}
+
+.img-container{
+	flex: 0 1 100px;
+}
+
+.img-container img{
+	max-width: 100%;
+	object-fit: cover;
+}
+.product-title{
+	flex-grow: 1;
+}
+.product-button{
+	background-color: #fff;
+	border-radius: 10%;
+	cursor: pointer;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.product-button--del{
+	color: red;
+	border-color: red;
+}
+
+.item-input{
+	max-width: 50px;
+	text-align: center;
+}
+
+.pay-container{
+	display: flex;
+	gap: 10px;
+	min-width: 150px;
+	font-weight: 700;
+
+}
+/* Завдання 2 --------------------------------------------- */
+.dinamic-search{
+	max-width: 200px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	border: 1px solid green;
+	padding: 5px;
+}
+.search-field{
+	color: red;
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+}
+.names-list{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+/* Завдання 3 --------------------------------------------- */
+.auto-container{
+	max-width: 300px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.filter-div{
+	display: flex;
+	justify-content: space-between;
+	padding: 15px;
+	border: 1px solid black;
+	height: 50px;
+}
+.filter-container{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.filter-div select{
+	width: 100px;
+}
+.select-box{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+.auto-list{
+	border: 1px solid #7d0909;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 10px;
+}
+/* Завдання 4 --------------------------------------------- */
+.translater{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	max-width: 500px;
+	padding: 10px;
+	border: 1px solid #000;
+	text-align: center;
+	gap: 10px;
+}
+.translater p{
+	grid-column: span 2;
+}
+.words-div{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	border: 1px solid #000;
+	padding: 5px;
+}
+.word-button{
+	border: 1px solid #000;
+	background-color: #fff;
+	cursor: pointer;
+}
+._active{
+	outline: 2px solid blue;
+}
+._right-answer{
+	background-color: green;
+}
+._wrong-answer{
+	background-color: red;
+}
+/* Завдання 7 --------------------------------------------- */
+.lists-container{
+	flex-direction: column;
+	gap: 10px;
+	display: inline-flex;
+}
+.list span{
+	border: 1px solid black;
+}
+/* Завдання 8 --------------------------------------------- */
+.table{
+	border: 1px solid #000;
+	display: inline-flex;
+	gap: 15px;
+}
+.table td{
+	border: 1px solid #000;
+	font-size: 24px;
+}
+/* Завдання 8 --------------------------------------------- */
+.form{
+	display: inline-flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.form-item{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
