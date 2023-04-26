@@ -13,11 +13,6 @@ export default class AddFilterForm {
     this.el = this.createForm()
   }
 
-  forSelect() {
-    let forSelect = new CustomEvent("forsel", {})
-    this.el.dispatchEvent(forSelect)
-  }
-
   createForm() {
     let filterContainer = document.createElement("div")
     let filterLabel = CreateHtmlElement.createElement({
