@@ -12,8 +12,8 @@ class ItemList {
     let item = document.getElementById(itemId)
     item.remove()
     let summ = event.detail.summ
-    let summNum = Number(summ.innerHTML)
-    let totalNum = Number(this.totalSpan.innerText)
+    let summNum = parseInt(summ.innerHTML)
+    let totalNum = parseInt(this.totalSpan.innerText)
     this.totalSpan.innerText = totalNum - summNum
   }
   minusElement(event) {
@@ -23,11 +23,11 @@ class ItemList {
       quantity.innerHTML--
     } else currentButton.setAttribute("disabled", "true")
     let summ = event.detail.summ
-    let summNum = Number(summ.innerHTML)
+    let summNum = parseInt(summ.innerHTML)
     let price = event.detail.price
     if (summNum > price) {
       summ.innerHTML = summNum - price
-      let totalNum = Number(this.totalSpan.innerText)
+      let totalNum = parseInt(this.totalSpan.innerText)
       this.totalSpan.innerText = totalNum - price
     }
   }
@@ -37,10 +37,10 @@ class ItemList {
     let minbtn = event.detail.minBtn
     minbtn.removeAttribute("disabled")
     let summ = event.detail.summ
-    let summNum = Number(summ.innerHTML)
+    let summNum = parseInt(summ.innerHTML)
     let price = event.detail.price
     summ.innerHTML = summNum + price
-    let totalNum = Number(this.totalSpan.innerText)
+    let totalNum = parseInt(this.totalSpan.innerText)
     this.totalSpan.innerText = totalNum + price
   }
   displayList() {
