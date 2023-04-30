@@ -3,7 +3,7 @@ function vacation() {
   let vacationDays = 56
   let date = new Date()
   let workBegins = date.setDate(date.getDate() + vacationDays)
-  let result = new Date(workBegins).toDateString()
+  let result = new Date(workBegins).toLocaleDateString()
   let vacationDiv = document.querySelector(".vacation")
   vacationDiv.innerHTML = `На момент поверення дата буде: ${result}`
 }
