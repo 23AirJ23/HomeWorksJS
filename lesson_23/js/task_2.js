@@ -68,7 +68,7 @@ function oneOrThree() {
 // Завдання 6 ------------------------------------------
 function stringOnlyNumbers() {
   let container = document.querySelector(".stringonlynumbers")
-  let num = someString.match(/\s\d{2}\s/g)
+  let num = someString.match(/\d/g)
   container.innerHTML = `Лише числа з рядка: ${num}`
 }
 
@@ -173,14 +173,14 @@ window.onload = function () {
   oneOrThree()
   stringOnlyNumbers()
   punctuationMarks()
-  separatedByPunctuation()
-  dayMonthYear()
-  twoDigitNumbers()
-  creditCard()
-  govermentSite()
-  years()
-  ukraineNum()
-  userName()
-  stringDate()
-  holidayOrNot()
+  // separatedByPunctuation()
+  // dayMonthYear()
+  // twoDigitNumbers()
+  // creditCard()
+  // govermentSite()
+  // years()
+  // ukraineNum()
+  // userName()
+  // stringDate()
+  // holidayOrNot()
 }
