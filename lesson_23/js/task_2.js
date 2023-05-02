@@ -76,7 +76,7 @@ function stringOnlyNumbers() {
 function punctuationMarks() {
   let container = document.querySelector(".punctuationmarks")
   for (const word of someString) {
-    if (/[.,]/.test(word)) {
+    if (/[\.,]/.test(word)) {
       let div = document.createElement("div")
       div.innerText = word
       container.append(div)
@@ -87,7 +87,7 @@ function punctuationMarks() {
 // Завдання 8 ------------------------------------------
 function separatedByPunctuation() {
   let container = document.querySelector(".separated-by-punctuation")
-  let sep = someString.match(/[а-їґ]*[.,]\s[а-їґ]*/gi)
+  let sep = someString.match(/[а-їґ]*[\.,]\s[а-їґ]*/gi)
   container.innerHTML = `Розділені розділовими знаками: ${sep}`
 }
 
@@ -173,14 +173,14 @@ window.onload = function () {
   oneOrThree()
   stringOnlyNumbers()
   punctuationMarks()
-  // separatedByPunctuation()
-  // dayMonthYear()
-  // twoDigitNumbers()
-  // creditCard()
-  // govermentSite()
-  // years()
-  // ukraineNum()
-  // userName()
-  // stringDate()
-  // holidayOrNot()
+  separatedByPunctuation()
+  dayMonthYear()
+  twoDigitNumbers()
+  creditCard()
+  govermentSite()
+  years()
+  ukraineNum()
+  userName()
+  stringDate()
+  holidayOrNot()
 }
